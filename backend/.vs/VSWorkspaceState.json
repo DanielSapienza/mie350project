@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\main",
+    "\\src\\main\\java",
+    "\\src\\main\\java\\com",
+    "\\src\\main\\java\\com\\mie350project",
+    "\\src\\main\\java\\com\\mie350project\\backend",
+    "\\src\\main\\java\\com\\mie350project\\backend\\model",
+    "\\src\\main\\java\\com\\mie350project\\backend\\model\\entity"
+  ],
+  "SelectedNode": "\\src\\main\\java\\com\\mie350project\\backend\\model\\entity",
+  "PreviewInSolutionExplorer": false
+}
