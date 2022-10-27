@@ -6,4 +6,8 @@ public class Testing {
 
     @NotEmpty
     private String testing;
+
+
+    @NotEmpty
+    private String DinaTest;
 }
