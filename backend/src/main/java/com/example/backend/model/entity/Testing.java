@@ -7,7 +7,12 @@ public class Testing {
     @NotEmpty
     private String testing;
 
-
     @NotEmpty
     private String DinaTest;
+
+    @NotEmpty
+    private String a_testing;
+
+    @NotEmpty
+    private String andrea_testing;
 }
