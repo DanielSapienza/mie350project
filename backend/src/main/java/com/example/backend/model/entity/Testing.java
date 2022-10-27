@@ -5,7 +5,7 @@ import javax.validation.constraints.NotEmpty;
 public class Testing {
 
     @NotEmpty
-    private String testing;
+    private String Danieltesting;
 
     @NotEmpty
     private String DinaTest;
@@ -18,4 +18,6 @@ public class Testing {
 
     @NotEmpty
     private String jonah_test;
+
+
 }
