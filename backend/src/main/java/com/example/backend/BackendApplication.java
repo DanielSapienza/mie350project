@@ -1,4 +1,4 @@
-package com.mie350project.backend;
+package com.example.backend;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

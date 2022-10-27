@@ -1,4 +1,4 @@
-package com.mie350project.backend.model.entity;
+package com.example.backend.model.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
