@@ -15,4 +15,7 @@ public class Testing {
 
     @NotEmpty
     private String andrea_testing;
+
+    @NotEmpty
+    private String jonah_test;
 }
