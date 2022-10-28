@@ -15,8 +15,8 @@ export default new Router({
       component: Home
     },
     {
-      path: '/students',
-      name: 'Students',
+      path: '/users',
+      name: 'Users',
       component: Students
     },
     {
