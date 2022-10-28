@@ -1,5 +1,6 @@
 package com.example.backend.controller;
 
+import com.example.backend.model.entity.Diet;
 import com.example.backend.model.repository.DietRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,6 +17,11 @@ public class DietController {
 
     public DietController(DietRepository repository){
         this.repository = repository;
+    }
+
+    @GetMapping("/diet")
+    List<Diet> retrieveAllDiets() {
+        return repository.findAll();
     }
 
 }
