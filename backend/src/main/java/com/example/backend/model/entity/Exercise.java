@@ -30,13 +30,13 @@ public class Exercise {
     private int Repetitions;
 
     @NotEmpty
-    private int Heart_Baets_Per_Min;
+    private int Heart_Beats_Per_Min;
 
-    public Exercise(int Exercise_ID, String Name, String Muscle_Group, int Repetitions, int Heart_Baets_Per_Min) {
+    public Exercise(int Exercise_ID, String Name, String Muscle_Group, int Repetitions, int Heart_Beats_Per_Min) {
         this.Exercise_Id = Exercise_ID;
         this.Name = Name;
         this.Muscle_Group = Muscle_Group;
         this.Repetitions = Repetitions;
-        this.Heart_Baets_Per_Min = Heart_Baets_Per_Min;
+        this.Heart_Beats_Per_Min = Heart_Beats_Per_Min;
     }
 }
