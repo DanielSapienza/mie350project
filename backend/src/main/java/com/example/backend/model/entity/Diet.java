@@ -14,9 +14,11 @@ import javax.validation.constraints.NotEmpty;
 @Getter
 @Setter
 @Table(name = "Diet_E")
-
 public class Diet {
 
+    @Id
+    @NotEmpty
+    private int Diet_Id;
     @NotEmpty
     private String Name;
 
@@ -35,8 +37,9 @@ public class Diet {
     @NotEmpty
     private float Carbohydrates_Per_Serving;
 
-    public Diet(String Name, String Food_Group, float Calories_Per_Serving,
+    public Diet(int Diet_Id, String Name, String Food_Group, float Calories_Per_Serving,
                 float Sugar_Per_Serving, float Protein_Per_Serving, float Carbohydrates_Per_Serving){
+        this.Diet_Id = Diet_Id;
         this.Name = Name;
         this.Food_Group = Food_Group;
         this.Calories_Per_Serving = Calories_Per_Serving;

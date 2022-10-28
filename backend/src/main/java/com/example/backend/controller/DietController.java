@@ -19,7 +19,7 @@ public class DietController {
         this.repository = repository;
     }
 
-    @GetMapping("/diet")
+    @GetMapping("/diets")
     List<Diet> retrieveAllDiets() {
         return repository.findAll();
     }
