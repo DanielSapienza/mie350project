@@ -12,16 +12,16 @@
     >
       <!-- Text slides with image -->
       <b-carousel-slide
-        caption="First Slide"
-        img-src="https://picsum.photos/1024/480/?image=58"
+        caption="Indy!"
+        img-src="https://image.petmd.com/files/styles/863x625/public/2022-06/gray.dumbo_.rat_.jpg"
       ></b-carousel-slide>
-
+      
       <!-- Slides with custom text -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+      <b-carousel-slide img-src="https://image.petmd.com/files/styles/863x625/public/2022-06/rat.blanket.jpg">
       </b-carousel-slide>
 
       <!-- Slides with image only -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=52"></b-carousel-slide>
+      <b-carousel-slide img-src="https://i.natgeofe.com/n/73c00c4f-a746-4d0b-a006-ea5c5097d265/01-rat-friends-nationalgeographic_1162144_16x9.jpg?w=1200"></b-carousel-slide>
 
     </b-carousel>
   </div>
