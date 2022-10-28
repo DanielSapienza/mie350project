@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h2> Users </h2>
+    <h2> Students </h2>
     <b-table striped hover responsive :items="students" :fields="fields">
       <template #cell(actions)="row">
         <b-button size="sm" v-b-modal.edit-modal @click="edit(row.item, row.index, $event.target)">
@@ -78,7 +78,7 @@ export default {
   methods: {
     init() {
       axios
-        .get('http://localhost:8085/users')
+        .get('http://localhost:8085/students')
         .then(response => (this.students = response.data))
     },
     edit(item, index, button) {
