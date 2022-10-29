@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 //import Students from '@/components/Students'
 import Professors from '@/components/Professors'
 import Users from '@/components/Users'
+import Exercises from '@/components/Exercises'
 
 
 
@@ -30,6 +31,11 @@ export default new Router({
       path: '/users',
       name: 'Users',
       component: Users
+    },
+    {
+      path: '/exercises',
+      name: 'Exercises',
+      component: Exercises
     },
   ]
 })

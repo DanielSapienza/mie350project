@@ -17,7 +17,7 @@ import javax.validation.constraints.NotEmpty;
 public class User {
     @Id
     @NotEmpty
-    private int Client_ID;
+    private int Client_Id;
 
     @NotEmpty
     private String First_Name;
@@ -34,8 +34,8 @@ public class User {
     @NotEmpty
     private float Weight;
 
-    public User(int Client_ID, String First_Name, String Last_Name, int Age, float Height, float Weight){
-        this.Client_ID = Client_ID;
+    public User(int Client_Id, String First_Name, String Last_Name, int Age, float Height, float Weight){
+        this.Client_Id = Client_Id;
         this.First_Name = First_Name;
         this.Last_Name = Last_Name;
         this.Age = Age;

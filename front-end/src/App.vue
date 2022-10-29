@@ -12,6 +12,7 @@
           <b-nav-item to="/" exact exact-active-class="exact-active">Home</b-nav-item>
           <b-nav-item to="/professors" exact exact-active-class="exact-active">Professors</b-nav-item>
           <b-nav-item to="/users" exact exact-active-class="exact-active">Users</b-nav-item>
+          <b-nav-item to="/exercises" exact exact-active-class="exact-active">Exercises</b-nav-item>
           <b-nav-item disabled>Admin</b-nav-item>
         </b-nav>
       </b-sidebar>

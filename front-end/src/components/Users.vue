@@ -13,7 +13,7 @@
   
           <label class="sr-only" for="input-id">Client ID</label>
           <b-form-input
-            id='input-client_ID'
+            id='input-client_Id'
             v-model="form.id"
             placeholder="Client ID"
             readonly
@@ -78,7 +78,7 @@
       return {
         users: null,
         fields: [
-        {key: 'client_ID', label: 'Client ID', sortable: true},
+        {key: 'client_Id', label: 'Client ID', sortable: true},
         {key: 'last_Name', label: 'Last Name', sortable: true},
         {key: 'first_Name', label: 'First Name', sortable: true},
         {key: 'age', label: 'Age', sortable: true},
@@ -106,7 +106,6 @@
       },
       edit(item, index, button) {
         this.form.id = item.id
-        this.form.email = item.email
         this.form.first_name = item.first_Name
         this.form.last_name = item.last_Name
         this.form.age = item.age
