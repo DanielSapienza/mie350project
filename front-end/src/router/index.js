@@ -1,11 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-//import Students from '@/components/Students'
-import Professors from '@/components/Professors'
 import Users from '@/components/Users'
 import Exercises from '@/components/Exercises'
-
+import Diets from '@/components/Diets'
 
 
 Vue.use(Router)
@@ -17,16 +15,6 @@ export default new Router({
       name: 'Home',
       component: Home
     },
-    //{
-      //path: '/students',
-      //name: 'Students',
-      //component: Students
-    //},
-    {
-      path: '/professors',
-      name: 'Professors',
-      component: Professors
-    },
     {
       path: '/users',
       name: 'Users',
@@ -36,6 +24,11 @@ export default new Router({
       path: '/exercises',
       name: 'Exercises',
       component: Exercises
+    },    
+    {
+      path: '/diets',
+      name: 'Diets',
+      component: Diets
     },
   ]
 })
