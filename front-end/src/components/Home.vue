@@ -12,16 +12,18 @@
     >
       <!-- Text slides with image -->
       <b-carousel-slide
-        caption="Indy!"
-        img-src="https://image.petmd.com/files/styles/863x625/public/2022-06/gray.dumbo_.rat_.jpg"
+        img-src="https://www.langs.org/covid-19/health-and-well-being/health-and-wellness.jpg"
       ></b-carousel-slide>
       
       <!-- Slides with custom text -->
-      <b-carousel-slide img-src="https://image.petmd.com/files/styles/863x625/public/2022-06/rat.blanket.jpg">
-      </b-carousel-slide>
+      
+      <b-carousel-slide
+        caption="Personal Health Application" 
+        img-src="http://foodandhealth.com/clipart.php/view/951/?download=1"
+      ></b-carousel-slide>
 
       <!-- Slides with image only -->
-      <b-carousel-slide img-src="https://i.natgeofe.com/n/73c00c4f-a746-4d0b-a006-ea5c5097d265/01-rat-friends-nationalgeographic_1162144_16x9.jpg?w=1200"></b-carousel-slide>
+      <b-carousel-slide img-src="https://media.istockphoto.com/vectors/set-of-men-and-women-exercise-at-home-using-the-house-as-a-gym-vector-id1220576876?k=20&m=1220576876&s=612x612&w=0&h=436tV4wL8JHGkYDUANYAQzBQIq6mvclICbA96-Uy2Ws="></b-carousel-slide>
 
     </b-carousel>
   </div>
