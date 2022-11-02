@@ -21,7 +21,7 @@ public class UserController {
     }
 
     @DeleteMapping("/users/{Client_ID}")
-    void deleteCourse(@PathVariable("Client_ID") String Client_ID) {
+    void deleteUser(@PathVariable("Client_ID") String Client_ID) {
         repository.deleteById(Client_ID);
     }
 
