@@ -3,9 +3,7 @@ package com.example.backend.controller;
 import com.example.backend.model.entity.User;
 import com.example.backend.model.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +20,9 @@ public class UserController {
         return repository.findAll();
     }
 
+    @DeleteMapping("/users/{Client_ID}")
+    void deleteUser(@PathVariable("Client_ID") int Client_ID) {repository.deleteById(Client_ID);
+    }
 
 }
 
