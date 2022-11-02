@@ -20,8 +20,8 @@ public class UserController {
         return repository.findAll();
     }
 
-    @DeleteMapping("/users/{id}")
-    void deleteCourse(@PathVariable("id") String Client_ID) {
+    @DeleteMapping("/users/{Client_ID}")
+    void deleteCourse(@PathVariable("Client_ID") String Client_ID) {
         repository.deleteById(Client_ID);
     }
 
