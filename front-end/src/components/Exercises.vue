@@ -8,7 +8,7 @@
           </b-button>
         </template>
       </b-table>
-      <b-modal id="edit-modal" title="Edit Users" @hide="resetEditModal" hide-footer>
+      <b-modal id="edit-modal" title="Edit Exercises" @hide="resetEditModal" hide-footer>
         <b-form>
   
           <label class="sr-only" for="input-id">Exercise ID</label>
@@ -31,7 +31,7 @@
           <b-form-input
             id="input-muscle_Group"
             v-model="form.muscle_Group"
-            placeholder="Muscle_Group"
+            placeholder="Muscle Group"
             required
           ></b-form-input>
 
