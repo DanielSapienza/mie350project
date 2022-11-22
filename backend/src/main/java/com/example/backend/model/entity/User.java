@@ -34,13 +34,17 @@ public class User {
     @NotEmpty
     private float Weight;
 
-    public User(int Client_Id, String First_Name, String Last_Name, int Age, float Height, float Weight){
+    @NotEmpty
+    private String Password;
+
+    public User(int Client_Id, String First_Name, String Last_Name, int Age, float Height, float Weight, String Password){
         this.Client_Id = Client_Id;
         this.First_Name = First_Name;
         this.Last_Name = Last_Name;
         this.Age = Age;
         this.Height = Height;
         this.Weight = Weight;
+        this.Password = Password;
     }
 
 

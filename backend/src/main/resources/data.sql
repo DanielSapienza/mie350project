@@ -2,11 +2,11 @@
 -- Hello everyone! Please remember to only use SINGLE quotations and ADD A SEMICOLON
 
 
-INSERT INTO UserProfile_E (Client_ID, First_Name, Last_Name, Age, Height, Weight) VALUES (1111, 'Daniel', 'Sapienza', 20, 176.0, 135.0);
-INSERT INTO UserProfile_E (Client_ID, First_Name, Last_Name, Age, Height, Weight) VALUES (2222, 'Erick', 'Romo', 15, 160.0, 100.0);
-INSERT INTO UserProfile_E (Client_ID, First_Name, Last_Name, Age, Height, Weight) VALUES (3333, 'Andrea', 'Mendez', 20, 177.5, 143.0);
-INSERT INTO UserProfile_E (Client_ID, First_Name, Last_Name, Age, Height, Weight) VALUES (4444, 'Lisa', 'Graham', 33, 154.7, 121.0);
-INSERT INTO UserProfile_E (Client_ID, First_Name, Last_Name, Age, Height, Weight) VALUES (5555, 'Julian', 'Geller', 45, 187.5, 156.0);
+INSERT INTO UserProfile_E (Client_ID, First_Name, Last_Name, Age, Height, Weight, Password) VALUES (1111, 'Daniel', 'Sapienza', 20, 176.0, 135.0, '111');
+INSERT INTO UserProfile_E (Client_ID, First_Name, Last_Name, Age, Height, Weight, Password) VALUES (2222, 'Erick', 'Romo', 15, 160.0, 100.0, '222');
+INSERT INTO UserProfile_E (Client_ID, First_Name, Last_Name, Age, Height, Weight, Password) VALUES (3333, 'Andrea', 'Mendez', 20, 177.5, 143.0, '333');
+INSERT INTO UserProfile_E (Client_ID, First_Name, Last_Name, Age, Height, Weight, Password) VALUES (4444, 'Lisa', 'Graham', 33, 154.7, 121.0, '444');
+INSERT INTO UserProfile_E (Client_ID, First_Name, Last_Name, Age, Height, Weight, Password) VALUES (5555, 'Julian', 'Geller', 45, 187.5, 156.0, '555');
 
 
 INSERT INTO Exercise_E (Exercise_Id, Name, Muscle_Group, Repetitions, Heart_Beats_Per_Min) VALUES (123, 'Bench-Press', 'Chest', 4, 120);
