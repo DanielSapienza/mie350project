@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Users from '@/components/Users'
 import Exercises from '@/components/Exercises'
 import Diets from '@/components/Diets'
+import Login from '@/components/Login'
 
 
 Vue.use(Router)
@@ -29,6 +30,11 @@ export default new Router({
       path: '/diets',
       name: 'Diets',
       component: Diets
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
   ]
 })
