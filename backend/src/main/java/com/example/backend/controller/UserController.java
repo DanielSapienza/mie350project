@@ -20,12 +20,12 @@ public class UserController {
         return repository.findAll();
     }
 
-    @DeleteMapping("/users/{Client_ID}")
-    void deleteUser(@PathVariable("Client_ID") Long Client_ID) {repository.deleteById(Client_ID);
+    @DeleteMapping("/users/{Client_Id}")
+    void deleteUser(@PathVariable("Client_Id") Long Client_Id) {repository.deleteById(Client_Id);
     }
 
-    @PutMapping("/users/{Client_ID}")
-    User updateUser(@RequestBody User newUser, @PathVariable("Client_ID") Long Client_Id) {
+    @PutMapping("/users/{Client_Id}")
+    User updateUser(@RequestBody User newUser, @PathVariable("Client_Id") Long Client_Id) {
         return repository.findById(Client_Id)
                 .map(user -> {
                     user.setFirst_Name(newUser.getFirst_Name());
