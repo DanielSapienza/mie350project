@@ -5,6 +5,9 @@ import Users from '@/components/Users'
 import Exercises from '@/components/Exercises'
 import Diets from '@/components/Diets'
 import Login from '@/components/Login'
+import Progress from '@/components/Progress'
+import Sleep from '@/components/Sleep'
+
 
 
 Vue.use(Router)
@@ -35,6 +38,16 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/progress',
+      name: 'Progress',
+      component: Progress
+    },
+    {
+      path: '/sleep',
+      name: 'Sleep',
+      component: Sleep
     },
   ]
 })

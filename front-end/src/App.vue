@@ -13,6 +13,8 @@
           <b-nav-item to="/users" exact exact-active-class="exact-active">Users</b-nav-item>
           <b-nav-item to="/exercises" exact exact-active-class="exact-active">Exercises</b-nav-item>
           <b-nav-item to="/diets" exact exact-active-class="exact-active">Diets</b-nav-item>
+          <b-nav-item to="/progress" exact exact-active-class="exact-active">Progress</b-nav-item>
+          <b-nav-item to="/sleep" exact exact-active-class="exact-active">Sleep</b-nav-item>
           <b-nav-item disabled>Admin</b-nav-item>
         </b-nav>
       </b-sidebar>

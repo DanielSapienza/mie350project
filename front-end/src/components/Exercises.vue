@@ -1,7 +1,7 @@
 <template>
     <div class="hello">
-      <h2> Exercises </h2>
-      <b-table striped hover responsive :items="exercises" :fields="fields">
+      <h2> Exercise </h2>
+      <b-table striped hover responsive :items="exercise" :fields="fields">
         <template #cell(actions)="row">
           <b-button size="sm" v-b-modal.edit-modal @click="edit(row.item, row.index, $event.target)">
             Edit
@@ -11,46 +11,38 @@
       <b-modal id="edit-modal" title="Edit Exercises" @hide="resetEditModal" hide-footer>
         <b-form>
   
-          <label class="sr-only" for="input-id">Exercise ID</label>
+          <label class="sr-only" for="input-userExerciseKey">Exercise ID</label>
           <b-form-input
-            id='input-exercise_Id'
-            v-model="form.id"
+            id='input-userExerciseKey'
+            v-model="form.userExerciseKey"
             placeholder="Exercise Id"
             readonly
           ></b-form-input>
   
-          <label class="sr-only" for="input-name">Name</label>
+          <label class="sr-only" for="input-workoutName"> Workout Name</label>
           <b-form-input
-            id='input-name'
-            v-model="form.name"
-            placeholder="Name"
+            id='input-workoutName'
+            v-model="form.workoutName"
+            placeholder="Workout Name"
             required
           ></b-form-input>
   
-          <label class="sr-only" for="input-muscle_group">Muscle Group</label>
+          <label class="sr-only" for="input-duration">Duration</label>
           <b-form-input
-            id="input-muscle_Group"
-            v-model="form.muscle_Group"
-            placeholder="Muscle Group"
+            id="input-duration"
+            v-model="form.duration"
+            placeholder="Duration"
             required
           ></b-form-input>
 
-          <label class="sr-only" for="input-repetitions">Repetitions</label>
+          <label class="sr-only" for="input-satisfaction">Satisfaction</label>
           <b-form-input
-            id="input-repetitions"
-            v-model="form.repetitions"
-            placeholder="Repetitions"
+            id="input-satisfaction"
+            v-model="form.satisfaction"
+            placeholder="Satisfaction"
             required
           ></b-form-input>
 
-          <label class="sr-only" for="input-heart_Beats_Per_Min">Heart Beats Per Min</label>
-          <b-form-input
-            id="input-heart_Beats_Per_Min"
-            v-model="form.heart_Beats_Per_Min"
-            placeholder="Heart Beats Per Min"
-            required
-          ></b-form-input>
-          
           <br />
           <b-button type="button" @click="onSave" variant="primary">Save</b-button>
           <b-button type="reset" variant="warning">Reset</b-button>
@@ -70,18 +62,16 @@
       return {
         exercises: null,
         fields: [
-        {key: 'exercise_Id', label: 'Exercise ID', sortable: true},
-        {key: 'name', label: 'Name', sortable: true},
-        {key: 'muscle_Group', label: 'Muscle Group', sortable: true},
-        {key: 'repetitions', label: 'Repetitions', sortable: true},
-        {key: 'heart_Beats_Per_Min', label: 'Heart Beats Per Min', sortable: true},
+        {key: 'userExerciseKey', label: 'Exercise ID', sortable: true},
+        {key: 'workoutName', label: 'Workout Name', sortable: true},
+        {key: 'duration', label: 'Duration', sortable: true},
+        {key: 'satisfaction', label: 'Satisfaction', sortable: true},
         {key: 'actions', label: 'Actions'}],
         form: {
-            id: '',
-            name: '',
-            muscle_Group: '',
-            repetitions: '',
-            heart_Beats_Per_Min:''
+            userExerciseKey: '',
+            workoutName: '',
+            duration: '',
+            satisfaction: ''
           },
       }
     },
@@ -91,33 +81,30 @@
     methods: {
       init() {
         axios
-          .get('http://localhost:8085/exercises')
-          .then(response => (this.exercises = response.data))
+          .get('http://localhost:8085/exercise')
+          .then(response => (this.exercise = response.data))
       },
       edit(item, index, button) {
-        this.form.id = item.id
-        this.form.name = item.name
-        this.form.muscle_Group = item.muscle_Group
-        this.form.repetitions = item.repetitions
-        this.form.heart_Beats_Per_Min = item.heart_Beats_Per_Min
+        this.form.userExerciseKey = item.userExerciseKey
+        this.form.workoutName = item.workoutName
+        this.form.duration = item.duration
+        this.form.satisfaction = item.satisfaction
       },
       resetEditModal() {
-        this.form.id=''
-        this.form.name=''
-        this.form.muscle_Group=''
-        this.form.repetitions=''
-        this.form.heart_Beats_Per_Min=''
+        this.form.userExerciseKey=''
+        this.form.workoutName=''
+        this.form.duration=''
+        this.form.satisfaction=''
       },
       onSave(event) {
         var numId;
-        numId = parseInt(this.form.id);
+        numId = parseInt(this.form.userExerciseKey);
         axios
-          .put('http://localhost:8085/exercises/' + numId, {
-            "id": numId,
-            "name": this.form.name,
-            "muscle_Group": this.form.muscle_Group,
-            "repetitions": this.form.repetitions,
-            "heart_Beats_Per_Min": this.form.heart_Beats_Per_Min,
+          .put('http://localhost:8085/exercise/' + numId, {
+            "userExerciseKey": this.form.userExerciseKey,
+            "workoutName": this.form.workoutName,
+            "duration": this.form.duration,
+            "satisfaction": this.form.satisfaction,
           })
           .then(() => this.init())
           .catch(function (error) {

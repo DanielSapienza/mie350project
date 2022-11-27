@@ -31,7 +31,7 @@ public class ExerciseController {
     }
 
     @GetMapping("/exercise/{clientId}/{workoutId}/{dayYear}")
-    Exercise retrieveDiet(@PathVariable("clientId") Long clientId, @PathVariable("workoutId") Long workoutId, @PathVariable("dayYear") String dayYear) {
+    Exercise retrieveExercise(@PathVariable("clientId") Long clientId, @PathVariable("workoutId") Long workoutId, @PathVariable("dayYear") String dayYear) {
         UserExerciseKey userExerciseKey = new UserExerciseKey(clientId, workoutId, dayYear);
         return repository.findById(userExerciseKey)
                 .orElseThrow(() -> new UserExerciseNotFoundException(userExerciseKey));
