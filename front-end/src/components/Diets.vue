@@ -1,7 +1,7 @@
 <template>
     <div class="hello">
       <h2> Diets </h2>
-      <b-table striped hover responsive :items="diets" :fields="fields">
+      <b-table striped hover responsive :items="diet" :fields="fields">
         <template #cell(actions)="row">
           <b-button size="sm" v-b-modal.edit-modal @click="edit(row.item, row.index, $event.target)">
             Edit
@@ -11,59 +11,59 @@
       <b-modal id="edit-modal" title="Edit Diets" @hide="resetEditModal" hide-footer>
         <b-form>
   
-          <label class="sr-only" for="input-id">Diet ID</label>
+          <label class="sr-only" for="input-userMealKey">Meal ID</label>
           <b-form-input
-            id='input-diet_Id'
-            v-model="form.id"
-            placeholder="Diet Id"
+            id='input-userMealKey'
+            v-model="form.userMealKey"
+            placeholder="Meal Id"
             readonly
           ></b-form-input>
   
-          <label class="sr-only" for="input-name">Name</label>
+          <label class="sr-only" for="input-mealName">Meal Name</label>
           <b-form-input
-            id='input-name'
-            v-model="form.name"
-            placeholder="Name"
+            id='input-mealName'
+            v-model="form.mealName"
+            placeholder="Meal Name"
             required
           ></b-form-input>
   
-          <label class="sr-only" for="input-food_Group">Food Group</label>
+          <label class="sr-only" for="input-calories">Calories</label>
           <b-form-input
-            id="input-food_Group"
-            v-model="form.food_Group"
-            placeholder="Food Group"
+            id="input-calories"
+            v-model="form.calories"
+            placeholder="Calories"
             required
           ></b-form-input>
 
-          <label class="sr-only" for="input-calories_Per_Serving">Calories Per Serving</label>
+          <label class="sr-only" for="input-sugar">Sugar</label>
           <b-form-input
-            id="input-calories_Per_Serving"
-            v-model="form.calories_Per_Serving"
-            placeholder="Calories Per Serving"
+            id="input-sugar"
+            v-model="form.sugar"
+            placeholder="sugar"
             required
           ></b-form-input>
 
-          <label class="sr-only" for="input-sugar_Per_Serving">Sugar Per Serving</label>
+          <label class="sr-only" for="input-carbs">Carbohydrates</label>
           <b-form-input
-            id="input-sugar_Per_Serving"
-            v-model="form.sugar_Per_Serving"
-            placeholder="Sugar Per Serving"
+            id="input-carbs"
+            v-model="form.carbs"
+            placeholder="Carbohydrates"
             required
           ></b-form-input>
 
-          <label class="sr-only" for="input-protein_Per_Serving">Protein Per Serving</label>
+          <label class="sr-only" for="input-protein">Protein</label>
           <b-form-input
-            id="input-protein_Per_Serving"
-            v-model="form.protein_Per_Serving"
-            placeholder="Protein Per Serving"
+            id="input-protein"
+            v-model="form.protein"
+            placeholder="Protein"
             required
           ></b-form-input>
 
-          <label class="sr-only" for="input-carbohydrates_Per_Serving">Carbohydrates Per Serving</label>
+          <label class="sr-only" for="input-fat">Fat</label>
           <b-form-input
-            id="input-carbohydrates_Per_Serving"
-            v-model="form.carbohydrates_Per_Serving"
-            placeholder="Carbohydrates Per Serving"
+            id="input-fat"
+            v-model="form.fat"
+            placeholder="Fat"
             required
           ></b-form-input>
           
@@ -84,24 +84,24 @@
     name: 'HelloWorld',
     data () {
       return {
-        diets: null,
+        diet: null,
         fields: [
-        {key: 'diet_Id', label: 'Diet ID', sortable: true},
-        {key: 'name', label: 'Name', sortable: true},
-        {key: 'food_Group', label: 'Food Group', sortable: true},
-        {key: 'calories_Per_Serving', label: 'Calories Per Serving', sortable: true},
-        {key: 'sugar_Per_Serving', label: 'Sugar Per Serving', sortable: true},
-        {key: 'protein_Per_Serving', label: 'Protein Per Serving', sortable: true},
-        {key: 'carbohydrates_Per_Serving', label: 'Carbohydrates Per Serving', sortable: true},
+        {key: 'userMealKey', label: 'Meal ID', sortable: true},
+        {key: 'mealName', label: 'Meal Name', sortable: true},
+        {key: 'calories', label: 'Calories', sortable: true},
+        {key: 'sugar', label: 'Sugar', sortable: true},
+        {key: 'carbs', label: 'Carbohydrates', sortable: true},
+        {key: 'protein', label: 'Protein', sortable: true},
+        {key: 'fat', label: 'Fat', sortable: true},
         {key: 'actions', label: 'Actions'}],
         form: {
-            id: '',
-            name: '',
-            food_Group: '',
-            calories_Per_Serving: '',
-            sugar_Per_Serving:'',
-            protein_Per_Serving:'',
-            carbohydrates_Per_Serving:''
+            userMealKey: '',
+            mealName: '',
+            calories: '',
+            sugar: '',
+            carbs:'',
+            protein:'',
+            fat:''
           },
       }
     },
@@ -111,37 +111,40 @@
     methods: {
       init() {
         axios
-          .get('http://localhost:8085/diets')
-          .then(response => (this.diets = response.data))
+          .get('http://localhost:8085/diet')
+          .then(response => (this.diet = response.data))
       },
       edit(item, index, button) {
-        this.form.id = item.id
-        this.form.name = item.name
-        this.form.food_Group = item.food_Group
-        this.form.sugar_Per_Serving = item.sugar_Per_Serving
-        this.form.protein_Per_Serving = item.protein_Per_Serving
-        this.form.carbohydrates_Per_Serving = item.carbohydrates_Per_Serving
+        this.form.userMealKey = item.dayYear
+        this.form.mealName = item.mealName
+        this.form.calories = item.calories
+        this.form.sugar = item.sugar
+        this.form.carbs = item.carbs
+        this.form.protein = item.protein
+        this.form.fat = item.fat
         
       },
       resetEditModal() {
-        this.form.id=''
-        this.form.name=''
-        this.form.food_Group=''
-        this.form.sugar_Per_Serving=''
-        this.form.protein_Per_Serving=''
-        this.form.carbohydrates_Per_Serving=''
+        this.form.userMealKey=''
+        this.form.mealName=''
+        this.form.calories=''
+        this.form.sugar=''
+        this.form.carbs=''
+        this.form.protein=''
+        this.form.fat=''
       },
       onSave(event) {
         var numId;
-        numId = parseInt(this.form.id);
+        numId = parseInt(this.form.userMealKey);
         axios
-          .put('http://localhost:8085/diets/' + numId, {
-            "id": numId,
-            "name": this.form.name,
-            "food_Group": this.form.food_Group,
-            "sugar_Per_Serving": this.form.sugar_Per_Serving,
-            "protein_Per_Serving": this.form.protein_Per_Serving,
-            "carbohydrates_Per_Serving": this.form.carbohydrates_Per_Serving,
+          .put('http://localhost:8085/diet/' + numId, {
+            "userMealKey": this.form.userMealKey,
+            "name": this.form.mealName,
+            "calories": this.calories,
+            "sugar": this.form.sugar,
+            "carbs": this.form.carbs,
+            "protein": this.form.protein,
+            "fat": this.form.fat,
           })
           .then(() => this.init())
           .catch(function (error) {

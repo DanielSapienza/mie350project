@@ -1,7 +1,7 @@
 <template>
     <div class="hello">
       <h2> Users </h2>
-      <b-table striped hover responsive :items="users" :fields="fields">
+      <b-table striped hover responsive :items="user" :fields="fields">
         <template #cell(actions)="row">
           <b-button size="sm" v-b-modal.edit-modal @click="edit(row.item, row.index, $event.target)">
             Edit
@@ -13,7 +13,7 @@
   
           <label class="sr-only" for="input-id">Client ID</label>
           <b-form-input
-            id='input-client_Id'
+            id='input-clientId'
             v-model="form.id"
             placeholder="Client ID"
             readonly
@@ -21,16 +21,16 @@
   
           <label class="sr-only" for="input-first-name">First Name</label>
           <b-form-input
-            id='input-first_Name'
-            v-model="form.first_name"
+            id='input-firstName'
+            v-model="form.firstName"
             placeholder="First Name"
             required
           ></b-form-input>
   
-          <label class="sr-only" for="input-last_name">Last Name</label>
+          <label class="sr-only" for="input-last-name">Last Name</label>
           <b-form-input
-            id="input-last_Name"
-            v-model="form.last_name"
+            id="input-lastName"
+            v-model="form.lastName"
             placeholder="Last Name"
             required
           ></b-form-input>
@@ -59,6 +59,14 @@
             required
           ></b-form-input>
           
+          <label class="sr-only" for="input-password">Password</label>
+          <b-form-input
+            id="input-password"
+            v-model="form.password"
+            placeholder="Password"
+            required
+          ></b-form-input>
+          
           <br />
           <b-button type="button" @click="onSave" variant="primary">Save</b-button>
           <b-button type="reset" variant="warning">Reset</b-button>
@@ -76,22 +84,24 @@
     name: 'HelloWorld',
     data () {
       return {
-        users: null,
+        user: null,
         fields: [
-        {key: 'client_Id', label: 'Client ID', sortable: true},
-        {key: 'last_Name', label: 'Last Name', sortable: true},
-        {key: 'first_Name', label: 'First Name', sortable: true},
+        {key: 'clientId', label: 'Client ID', sortable: true},
+        {key: 'lastName', label: 'Last Name', sortable: true},
+        {key: 'firstName', label: 'First Name', sortable: true},
         {key: 'age', label: 'Age', sortable: true},
         {key: 'height', label: 'Height', sortable: true},
         {key: 'weight', label: 'Weight', sortable: true},
+        {key: 'password', label: 'Password', sortable: true},
         {key: 'actions', label: 'Actions'}],
         form: {
             id: '',
-            first_name: '',
-            last_name: '',
+            firstName: '',
+            lastName: '',
             age: '',
             height:'',
-            weight:''
+            weight:'',
+            password:''
           },
       }
     },
@@ -101,36 +111,39 @@
     methods: {
       init() {
         axios
-          .get('http://localhost:8085/users')
-          .then(response => (this.users = response.data))
+          .get('http://localhost:8085/user')
+          .then(response => (this.user = response.data))
       },
       edit(item, index, button) {
         this.form.id = item.id
-        this.form.first_name = item.first_Name
-        this.form.last_name = item.last_Name
+        this.form.firstName = item.firstName
+        this.form.lastName = item.lastName
         this.form.age = item.age
         this.form.height = item.height
         this.form.weight = item.weight
+        this.form.password = item.password
       },
       resetEditModal() {
         this.form.id=''
-        this.form.first_name=''
-        this.form.last_name=''
+        this.form.firstName=''
+        this.form.lastName=''
         this.form.age=''
         this.form.height=''
         this.form.weight=''
+        this.form.password=''
       },
       onSave(event) {
         var numId;
         numId = parseInt(this.form.id);
         axios
-          .put('http://localhost:8085/users/' + numId, {
+          .put('http://localhost:8085/user/' + numId, {
             "id": numId,
-            "first_Name": this.form.first_name,
-            "last_Name": this.form.last_name,
+            "firstName": this.form.firstName,
+            "lastName": this.form.lastName,
             "age": this.form.age,
             "height": this.form.height,
             "weight": this.form.weight,
+            "password": this.form.password,
           })
           .then(() => this.init())
           .catch(function (error) {

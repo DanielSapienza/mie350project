@@ -7,44 +7,48 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "UserProfile_E")
+@Table(name = "UserProfile")
 public class User {
     @Id
-    @NotEmpty
-    private Long Client_Id;
+    private Long clientId;
 
     @NotEmpty
-    private String First_Name;
+    private String firstName;
 
     @NotEmpty
-    private String Last_Name;
+    private String lastName;
+
+    @Max(150)
+    @Min(0)
+    private int age;
+
+    @Max(300)
+    @Min(0)
+    private float height;
+
+    @Max(800)
+    @Min(0)
+    private float weight;
 
     @NotEmpty
-    private int Age;
+    private String password;
 
-    @NotEmpty
-    private float Height;
-
-    @NotEmpty
-    private float Weight;
-
-    @NotEmpty
-    private String Password;
-
-    public User(Long Client_Id, String First_Name, String Last_Name, int Age, float Height, float Weight, String Password){
-        this.Client_Id = Client_Id;
-        this.First_Name = First_Name;
-        this.Last_Name = Last_Name;
-        this.Age = Age;
-        this.Height = Height;
-        this.Weight = Weight;
-        this.Password = Password;
+    public User(Long clientId, String firstName, String lastName, int age, float height, float weight, String password){
+        this.clientId = clientId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.height = height;
+        this.weight = weight;
+        this.password = password;
     }
 
 

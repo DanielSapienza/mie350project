@@ -1,51 +1,49 @@
 package com.example.backend.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "Diet_E")
+@Table(name = "Diet")
 public class Diet {
 
-    @Id
-    @NotEmpty
-    private int Diet_Id;
-    @NotEmpty
-    private String Name;
+    @EmbeddedId
+    UserMealKey userMealKey;
 
     @NotEmpty
-    private String Food_Group;
+    private String mealName;
 
     @NotEmpty
-    private float Calories_Per_Serving;
+    private float calories;
 
     @NotEmpty
-    private float Sugar_Per_Serving;
+    private float sugar;
 
     @NotEmpty
-    private float Protein_Per_Serving;
+    private float carbs;
 
     @NotEmpty
-    private float Carbohydrates_Per_Serving;
+    private float protein;
 
-    public Diet(int Diet_Id, String Name, String Food_Group, float Calories_Per_Serving,
-                float Sugar_Per_Serving, float Protein_Per_Serving, float Carbohydrates_Per_Serving){
-        this.Diet_Id = Diet_Id;
-        this.Name = Name;
-        this.Food_Group = Food_Group;
-        this.Calories_Per_Serving = Calories_Per_Serving;
-        this.Sugar_Per_Serving = Sugar_Per_Serving;
-        this.Protein_Per_Serving = Protein_Per_Serving;
-        this.Carbohydrates_Per_Serving = Carbohydrates_Per_Serving;
+    @NotEmpty
+    private float fat;
+
+    public Diet(UserMealKey userMealKey, String mealName, float calories, float sugar, float carbs, float protein, float fat){
+        this.userMealKey = userMealKey;
+        this.mealName = mealName;
+        this.calories = calories;
+        this.sugar = sugar;
+        this.protein = protein;
+        this.carbs = carbs;
+        this.fat = fat;
     }
 
 }

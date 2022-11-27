@@ -1,5 +1,6 @@
 package com.example.backend.controller;
 
+import com.example.backend.controller.exceptions.UserNotFoundException;
 import com.example.backend.model.entity.User;
 import com.example.backend.model.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,34 +12,42 @@ import java.util.List;
 @RestController
 public class UserController {
     @Autowired
-    private UserRepository repository;
+    private final UserRepository repository;
 
     public UserController(UserRepository repository){this.repository = repository;}
 
-    @GetMapping("/users")
+    @GetMapping("/user")
     List<User> retrieveAllUsers() {
         return repository.findAll();
     }
 
-    @DeleteMapping("/users/{Client_Id}")
-    void deleteUser(@PathVariable("Client_Id") Long Client_Id) {repository.deleteById(Client_Id);
+    @PostMapping("/user")
+    User createUser(@RequestBody User newUser) {
+        return repository.save(newUser);
     }
 
-    @PutMapping("/users/{Client_Id}")
-    User updateUser(@RequestBody User newUser, @PathVariable("Client_Id") Long Client_Id) {
-        return repository.findById(Client_Id)
+    @GetMapping("/user/{clientId}")
+    User retrieveUser(@PathVariable("clientId") Long clientId) {
+        return repository.findById(clientId)
+                .orElseThrow(() -> new UserNotFoundException(clientId));
+    }
+
+    @PutMapping("/user/{clientId}")
+    User updateUser(@RequestBody User newUser, @PathVariable("clientId") Long clientId) {
+        return repository.findById(clientId)
                 .map(user -> {
-                    user.setFirst_Name(newUser.getFirst_Name());
-                    user.setLast_Name(newUser.getLast_Name());
-                    user.setAge(newUser.getAge());
+                    user.setFirstName(newUser.getFirstName());
+                    user.setLastName(newUser.getLastName());
                     user.setHeight(newUser.getHeight());
+                    user.setAge(newUser.getAge());
                     user.setWeight(newUser.getWeight());
                     return repository.save(user);
                 })
-                .orElseGet(() -> {
-                    newUser.setClient_Id(Client_Id);
-                    return repository.save(newUser);
-                });
+                .orElseThrow(() -> new UserNotFoundException(clientId));
+    }
+
+    @DeleteMapping("/user/{clientId}")
+    void deleteUser(@PathVariable("clientId") Long clientId) {repository.deleteById(clientId);
     }
 }
 

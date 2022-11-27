@@ -1,11 +1,13 @@
 package com.example.backend.controller;
 
+import com.example.backend.controller.exceptions.UserMealNotFoundException;
+import com.example.backend.controller.exceptions.UserNotFoundException;
 import com.example.backend.model.entity.Diet;
+import com.example.backend.model.entity.User;
+import com.example.backend.model.entity.UserMealKey;
 import com.example.backend.model.repository.DietRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,9 +21,42 @@ public class DietController {
         this.repository = repository;
     }
 
-    @GetMapping("/diets")
+    @GetMapping("/diet")
     List<Diet> retrieveAllDiets() {
         return repository.findAll();
+    }
+    @PostMapping("/diet")
+    Diet createDiet(@RequestBody Diet newDiet) {
+        return repository.save(newDiet);
+    }
+
+    @GetMapping("/diet/{clientId}/{mealType}/{dayYear}")
+    Diet retrieveDiet(@PathVariable("clientId") Long clientId, @PathVariable("mealType") String mealType, @PathVariable("dayYear") String dayYear) {
+        UserMealKey userMealKey = new UserMealKey(clientId, mealType, dayYear);
+        return repository.findById(userMealKey)
+                .orElseThrow(() -> new UserMealNotFoundException(userMealKey));
+    }
+
+    @PutMapping("/diet/{clientId}/{mealType}/{dayYear}")
+    Diet updateDiet(@RequestBody Diet newDiet, @PathVariable("clientId") Long clientId, @PathVariable("mealType") String mealType, @PathVariable("dayYear") String dayYear) {
+        UserMealKey userMealKey = new UserMealKey(clientId, mealType, dayYear);
+        return repository.findById(userMealKey)
+                .map(diet -> {
+                    diet.setMealName(newDiet.getMealName());
+                    diet.setCalories(newDiet.getCalories());
+                    diet.setSugar(newDiet.getSugar());
+                    diet.setCarbs(newDiet.getCarbs());
+                    diet.setProtein(newDiet.getProtein());
+                    diet.setFat(newDiet.getFat());
+                    return repository.save(diet);
+                })
+                .orElseThrow(() -> new UserMealNotFoundException(userMealKey));
+    }
+
+    @DeleteMapping("/diet/{clientId}/{mealType}/{dayYear}")
+    void deleteDiet(@PathVariable("clientId") Long clientId, @PathVariable("mealType") String mealType, @PathVariable("dayYear") String dayYear) {
+        UserMealKey userMealKey = new UserMealKey(clientId, mealType, dayYear);
+        repository.deleteById(userMealKey);
     }
 
 }

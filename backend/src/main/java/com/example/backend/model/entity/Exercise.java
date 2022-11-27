@@ -4,39 +4,39 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "Exercise_E")
+@Table(name = "Exercise")
 public class Exercise {
 
-    @Id
-    @NotEmpty
-    private int Exercise_Id;
+    @EmbeddedId
+    UserExerciseKey userExerciseKey;
 
     @NotEmpty
-    private String Name;
+    private String workoutName;
 
     @NotEmpty
-    private String Muscle_Group;
+    private float duration;
 
-    @NotEmpty
-    private int Repetitions;
+    @Max(5)
+    @Min(0)
+    private int satisfaction;
 
-    @NotEmpty
-    private int Heart_Beats_Per_Min;
-
-    public Exercise(int Exercise_ID, String Name, String Muscle_Group, int Repetitions, int Heart_Beats_Per_Min) {
-        this.Exercise_Id = Exercise_ID;
-        this.Name = Name;
-        this.Muscle_Group = Muscle_Group;
-        this.Repetitions = Repetitions;
-        this.Heart_Beats_Per_Min = Heart_Beats_Per_Min;
+    public Exercise(UserExerciseKey userExerciseKey, String workoutName, float duration, int satisfaction) {
+        this.userExerciseKey = userExerciseKey;
+        this.workoutName = workoutName;
+        this.duration = duration;
+        this.satisfaction = satisfaction;
     }
+
 }
