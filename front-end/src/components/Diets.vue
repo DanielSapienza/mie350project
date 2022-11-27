@@ -115,7 +115,7 @@
           .then(response => (this.diet = response.data))
       },
       edit(item, index, button) {
-        this.form.userMealKey = item.dayYear
+        this.form.userMealKey = item.userMealKey
         this.form.mealName = item.mealName
         this.form.calories = item.calories
         this.form.sugar = item.sugar
