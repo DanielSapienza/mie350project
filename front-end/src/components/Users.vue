@@ -81,7 +81,7 @@
           <br />
           <b-button type="button" @click="onSave" variant="primary">Save</b-button>
           <b-button type="reset" variant="warning">Reset</b-button>
-          <b-button type="button" variant="danger">Remove User</b-button>
+          <b-button type="button" @click="onDelete" variant="danger">Remove User</b-button>
         </b-form>
   
       </b-modal>
@@ -174,6 +174,16 @@
           .catch(function (error) {
             console.log(error);
           });
+      },
+      onDelete(event) {
+        var numId;
+        numId = parseInt(this.form.clientId);
+        axios
+          .delete('http://localhost:8085/user/' + numId)
+          .then(() => this.init())
+          .catch(function (error) {
+            console.log(error);
+          })
       }
     }
   }
