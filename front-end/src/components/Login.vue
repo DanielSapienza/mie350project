@@ -56,19 +56,22 @@
     },
     methods: {
       login(submitEvent) {
-        this.id = submitEvent.target.elements.clientId.value;
+        this.id = submitEvent.target.elements.id.value;
         this.password = submitEvent.target.elements.password.value;
         axios.all([
-            axios.get('http://localhost:8085/users/'+submitEvent.target.elements.clientId.value)
+            axios.get('http://localhost:8085/user/'+this.id)
             .catch(
                 function(e){console.log('Error', e);})
             ])
             .then(axios.spread((data1) => {
             console.log('data1', data1)
             if (typeof data1 !== 'undefined'){
-                this.$emit("authenticated", true);
-                this.$emit("authorized", false);
-                this.$emit('User',data1.data);
+                //this.$emit("authenticated", true);
+                //this.$emit("authorized", false);
+                //this.$emit('User',data1.data);
+                this.$root.$emit("authenticated", true);
+                this.$root.$emit("authorized", false);
+                this.$root.$emit('User',data1.data);
                 this.$router.push("/");
             }
             else{
