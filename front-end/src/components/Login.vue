@@ -8,7 +8,7 @@
             class="form-control"
             type="text"
             name="id"
-            placeholder="client_Id"
+            placeholder="clientId"
             required
           />
         </div>
@@ -56,10 +56,10 @@
     },
     methods: {
       login(submitEvent) {
-        this.id = submitEvent.target.elements.client_Id.value;
+        this.id = submitEvent.target.elements.clientId.value;
         this.password = submitEvent.target.elements.password.value;
         axios.all([
-            axios.get('http://localhost:8085/users/'+submitEvent.target.elements.client_Id.value)
+            axios.get('http://localhost:8085/users/'+submitEvent.target.elements.clientId.value)
             .catch(
                 function(e){console.log('Error', e);})
             ])
