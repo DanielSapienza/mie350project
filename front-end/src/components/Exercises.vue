@@ -1,6 +1,6 @@
 <template>
     <div class="hello">
-      <h2> Exercise </h2>
+      <h2> Exercises </h2>
       <b-table striped hover responsive :items="exercise" :fields="fields">
         <template #cell(actions)="row">
           <b-button size="sm" v-b-modal.edit-modal @click="edit(row.item, row.index, $event.target)">

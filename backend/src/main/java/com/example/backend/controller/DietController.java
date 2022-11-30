@@ -25,6 +25,7 @@ public class DietController {
     List<Diet> retrieveAllDiets() {
         return repository.findAll();
     }
+//    List<Diet> retreiveKeyInfo(){ return repository.findKeyInfo(); }
     @PostMapping("/diet")
     Diet createDiet(@RequestBody Diet newDiet) {
         return repository.save(newDiet);
