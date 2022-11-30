@@ -136,6 +136,7 @@
       onSave(event) {
         var numId;
         numId = parseInt(this.form.userMealKey);
+        //console.log(this.form.userMealKey.mealType)
         axios
           .put('http://localhost:8085/diet/' + numId, {
             "userMealKey": this.form.userMealKey,
