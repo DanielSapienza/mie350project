@@ -18,7 +18,9 @@
             placeholder="Meal Id"
             readonly
           ></b-form-input>
-  
+
+
+
           <label class="sr-only" for="input-mealName">Meal Name</label>
           <b-form-input
             id='input-mealName'
@@ -87,6 +89,8 @@
         diet: null,
         fields: [
         {key: 'userMealKey', label: 'Meal ID', sortable: true},
+        //{key: 'mealType', label: 'Meal Type', sortable: true},
+        //{key: 'dayYear', label: 'Meal Date', sortable: true},
         {key: 'mealName', label: 'Meal Name', sortable: true},
         {key: 'calories', label: 'Calories', sortable: true},
         {key: 'sugar', label: 'Sugar', sortable: true},
@@ -96,6 +100,8 @@
         {key: 'actions', label: 'Actions'}],
         form: {
             userMealKey: '',
+            //mealType: '',
+            //dayYear: '',
             mealName: '',
             calories: '',
             sugar: '',
@@ -115,7 +121,10 @@
           .then(response => (this.diet = response.data))
       },
       edit(item, index, button) {
+        console.log("testing")
         this.form.userMealKey = item.userMealKey
+        //this.form.userMealKey.mealType = item.userMealKey.mealType
+        //this.form.userMealKey.dayYear = item.userMealKey.dayYear
         this.form.mealName = item.mealName
         this.form.calories = item.calories
         this.form.sugar = item.sugar
@@ -126,6 +135,8 @@
       },
       resetEditModal() {
         this.form.userMealKey=''
+        //this.form.userMealKey.mealType=''
+        //this.form.userMealKey.dayYear=''
         this.form.mealName=''
         this.form.calories=''
         this.form.sugar=''
@@ -134,11 +145,14 @@
         this.form.fat=''
       },
       onSave(event) {
-        var numId;
-        numId = parseInt(this.form.userMealKey);
-        //console.log(this.form.userMealKey.mealType)
+        var meal;
+        var date;
+        var client;
+        date = (this.form.userMealKey.dayYear)
+        meal = (this.form.userMealKey.mealType)
+        client = parseInt(this.form.userMealKey.clientId)
         axios
-          .put('http://localhost:8085/diet/' + numId, {
+          .put('http://localhost:8085/diet/' + client +'/' + meal + '/' + date, {
             "userMealKey": this.form.userMealKey,
             "name": this.form.mealName,
             "calories": this.calories,
