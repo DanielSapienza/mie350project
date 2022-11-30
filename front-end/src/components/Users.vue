@@ -1,6 +1,17 @@
 <template>
     <div class="hello">
       <h2> Users </h2>
+    <div class="search-container">
+      <b-input-group>
+        <b-form-input type="text" placeholder="Search Students' Name" v-model="query"/>
+        <template #append>
+          <b-button class="search-button" @click="search(query)">
+            <b-icon-search></b-icon-search>
+          </b-button>
+        </template>
+      </b-input-group>
+    </div>
+
       <b-table striped hover responsive :items="user" :fields="fields">
         <template #cell(actions)="row">
           <b-button size="sm" v-b-modal.edit-modal @click="edit(row.item, row.index, $event.target)">
@@ -11,10 +22,10 @@
       <b-modal id="edit-modal" title="Edit Users" @hide="resetEditModal" hide-footer>
         <b-form>
   
-          <label class="sr-only" for="input-id">Client ID</label>
+          <label class="sr-only" for="input-clientId">Client ID</label>
           <b-form-input
             id='input-clientId'
-            v-model="form.id"
+            v-model="form.clientId"
             placeholder="Client ID"
             readonly
           ></b-form-input>
@@ -85,6 +96,7 @@
     data () {
       return {
         user: null,
+        query:'',
         fields: [
         {key: 'clientId', label: 'Client ID', sortable: true},
         {key: 'lastName', label: 'Last Name', sortable: true},
@@ -95,7 +107,7 @@
         {key: 'password', label: 'Password', sortable: true},
         {key: 'actions', label: 'Actions'}],
         form: {
-            id: '',
+            clientId: '',
             firstName: '',
             lastName: '',
             age: '',
@@ -114,8 +126,21 @@
           .get('http://localhost:8085/user')
           .then(response => (this.user = response.data))
       },
+      search(seachTerm){
+        if (seachTerm){
+          axios
+          .get('http://localhost:8085/user/search/'+seachTerm)
+          .then(response => (this.user = response.data))
+          .catch(function(error){
+            if (error.response){
+              console.log(error.response.data);
+            }
+          })
+        }
+        console.log(seachTerm)
+      },
       edit(item, index, button) {
-        this.form.id = item.id
+        this.form.clientId = item.clientId
         this.form.firstName = item.firstName
         this.form.lastName = item.lastName
         this.form.age = item.age
@@ -124,7 +149,7 @@
         this.form.password = item.password
       },
       resetEditModal() {
-        this.form.id=''
+        this.form.clientId=''
         this.form.firstName=''
         this.form.lastName=''
         this.form.age=''
@@ -134,7 +159,7 @@
       },
       onSave(event) {
         var numId;
-        numId = parseInt(this.form.id);
+        numId = parseInt(this.form.clientId);
         axios
           .put('http://localhost:8085/user/' + numId, {
             "id": numId,

@@ -3,12 +3,12 @@
       <form @submit.prevent="login">
         <h2 class="mb-3">Login</h2>
         <div class="input">
-          <label for="id">School ID</label>
+          <label for="id">Client Id</label>
           <input
             class="form-control"
             type="text"
             name="id"
-            placeholder="student/professor id"
+            placeholder="client_Id"
             required
           />
         </div>
