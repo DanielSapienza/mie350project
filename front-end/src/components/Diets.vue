@@ -41,7 +41,7 @@
           <b-form-input
             id="input-sugar"
             v-model="form.sugar"
-            placeholder="sugar"
+            placeholder="Sugar"
             required
           ></b-form-input>
 

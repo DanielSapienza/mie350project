@@ -22,7 +22,6 @@ public class Sleep {
     @EmbeddedId
     UserSleepKey userSleepKey;
 
-    @NotEmpty
     private float duration;
 
     @Max(5)

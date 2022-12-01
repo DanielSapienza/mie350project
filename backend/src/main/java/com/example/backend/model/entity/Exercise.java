@@ -25,7 +25,6 @@ public class Exercise {
     @NotEmpty
     private String workoutName;
 
-    @NotEmpty
     private float duration;
 
     @Max(5)
