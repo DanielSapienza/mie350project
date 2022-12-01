@@ -21,19 +21,14 @@ public class Diet {
     @NotEmpty
     private String mealName;
 
-    @NotEmpty
     private float calories;
 
-    @NotEmpty
     private float sugar;
 
-    @NotEmpty
     private float carbs;
 
-    @NotEmpty
     private float protein;
 
-    @NotEmpty
     private float fat;
 
     public Diet(UserMealKey userMealKey, String mealName, float calories, float sugar, float carbs, float protein, float fat){

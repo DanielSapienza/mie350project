@@ -41,7 +41,7 @@
           <b-form-input
             id="input-sugar"
             v-model="form.sugar"
-            placeholder="sugar"
+            placeholder="Sugar"
             required
           ></b-form-input>
 
@@ -148,9 +148,9 @@
         var meal;
         var date;
         var client;
-        date = (this.form.userMealKey.dayYear)
-        meal = (this.form.userMealKey.mealType)
-        client = parseInt(this.form.userMealKey.clientId)
+        date = (this.form.userMealKey.dayYear);
+        meal = (this.form.userMealKey.mealType);
+        client = parseInt(this.form.userMealKey.clientId);
         axios
           .put('http://localhost:8085/diet/' + client +'/' + meal + '/' + date, {
             "userMealKey": this.form.userMealKey,
