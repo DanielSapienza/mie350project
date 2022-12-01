@@ -15,9 +15,9 @@ public class UserMealKey implements Serializable {
     @Column(name = "clientId")
     Long clientId;
 
-    private String mealType;
+    public String mealType;
 
-    private String dayYear;
+    public String dayYear;
 
 
     @Override

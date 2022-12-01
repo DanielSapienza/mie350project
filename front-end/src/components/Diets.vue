@@ -89,8 +89,8 @@
         diet: null,
         fields: [
         {key: 'userMealKey', label: 'Meal ID', sortable: true},
-        //{key: 'mealType', label: 'Meal Type', sortable: true},
-        //{key: 'dayYear', label: 'Meal Date', sortable: true},
+        {key: 'mealType', label: 'Meal Type', sortable: true},
+        {key: 'dayYear', label: 'Meal Date', sortable: true},
         {key: 'mealName', label: 'Meal Name', sortable: true},
         {key: 'calories', label: 'Calories', sortable: true},
         {key: 'sugar', label: 'Sugar', sortable: true},
@@ -100,8 +100,8 @@
         {key: 'actions', label: 'Actions'}],
         form: {
             userMealKey: '',
-            //mealType: '',
-            //dayYear: '',
+            mealType: '',
+            dayYear: '',
             mealName: '',
             calories: '',
             sugar: '',
@@ -123,8 +123,8 @@
       edit(item, index, button) {
         console.log("testing")
         this.form.userMealKey = item.userMealKey
-        //this.form.userMealKey.mealType = item.userMealKey.mealType
-        //this.form.userMealKey.dayYear = item.userMealKey.dayYear
+        this.form.userMealKey.mealType = item.userMealKey.mealType
+        this.form.userMealKey.dayYear = item.userMealKey.dayYear
         this.form.mealName = item.mealName
         this.form.calories = item.calories
         this.form.sugar = item.sugar
@@ -135,8 +135,8 @@
       },
       resetEditModal() {
         this.form.userMealKey=''
-        //this.form.userMealKey.mealType=''
-        //this.form.userMealKey.dayYear=''
+        this.form.userMealKey.mealType=''
+        this.form.userMealKey.dayYear=''
         this.form.mealName=''
         this.form.calories=''
         this.form.sugar=''
