@@ -27,7 +27,7 @@ public class DietController {
         return repository.findWantedInfo(clientId);
     }
 
-    @GetMapping("/diet/admin")
+    @GetMapping("/diet")
     List<Diet> retrieveAllDiet() {
         return repository.findAll();
     }

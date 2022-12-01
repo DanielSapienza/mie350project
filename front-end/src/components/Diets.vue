@@ -19,6 +19,14 @@
             readonly
           ></b-form-input>
 
+          <label class="sr-only" for="input-clientId">Client ID</label>
+          <b-form-input
+            id='input-clientId'
+            v-model="form.clientId"
+            placeholder="Client ID"
+            required
+          ></b-form-input>
+
           <label class="sr-only" for="input-mealType">Meal Type</label>
           <b-form-input
             id='input-mealType'
@@ -103,6 +111,7 @@
         diet: null,
         fields: [
         //{key: 'userMealKey', label: 'Meal ID', sortable: true},
+        {key: 'clientId', label: 'Client ID', sortable: true},
         {key: 'mealType', label: 'Meal Type', sortable: true},
         {key: 'dayYear', label: 'Meal Date', sortable: true},
         {key: 'mealName', label: 'Meal Name', sortable: true},
@@ -114,6 +123,7 @@
         {key: 'actions', label: 'Actions'}],
         form: {
             //userMealKey: '',
+            clientId: '',
             mealType: '',
             dayYear: '',
             mealName: '',
@@ -137,6 +147,7 @@
       edit(item, index, button) {
         console.log("testing")
         //this.form.userMealKey = item.userMealKey
+        this.form.userMealKey.clientId = item.userMealKey.clientId
         this.form.userMealKey.mealType = item.userMealKey.mealType
         this.form.userMealKey.dayYear = item.userMealKey.dayYear
         this.form.mealName = item.mealName
@@ -149,6 +160,7 @@
       },
       resetEditModal() {
         //this.form.userMealKey=''
+        this.form.userMealKey.clientId=''
         this.form.userMealKey.mealType=''
         this.form.userMealKey.dayYear=''
         this.form.mealName=''
@@ -167,7 +179,7 @@
         client = parseInt(this.form.userMealKey.clientId);
         axios
           .put('http://localhost:8085/diet/' + client +'/' + meal + '/' + date, {
-            //"userMealKey": this.form.userMealKey,
+            "userMealKey": this.form.userMealKey,
             "name": this.form.mealName,
             "calories": this.calories,
             "sugar": this.form.sugar,
