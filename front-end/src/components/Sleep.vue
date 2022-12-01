@@ -11,15 +11,13 @@
     <b-modal id="edit-modal" title="Edit Sleep" @hide="resetEditModal" hide-footer>
       <b-form>
 
-        <label class="sr-only" for="input-userMealKey">Sleep ID</label>
+        <label class="sr-only" for="input-userSleepKey">Sleep ID</label>
         <b-form-input
           id='input-userSleepKey'
           v-model="form.userSleepKey"
           placeholder="Sleep Id"
           readonly
         ></b-form-input>
-
-
 
         <label class="sr-only" for="input-duration">Duration</label>
         <b-form-input
@@ -41,7 +39,7 @@
         <b-form-input
           id="input-dream"
           v-model="form.dream"
-          placeholder="dream"
+          placeholder="Dream"
           required
         ></b-form-input>
 
@@ -53,10 +51,10 @@
           required
         ></b-form-input>
 
-        <label class="sr-only" for="input-nNaps">Number of Naps</label>
+        <label class="sr-only" for="input-numNaps">Number of Naps</label>
         <b-form-input
-          id="input-nNaps"
-          v-model="form.nNaps"
+          id="input-numNaps"
+          v-model="form.numNaps"
           placeholder="Number of Naps"
           required
         ></b-form-input>
@@ -85,7 +83,7 @@ export default {
       {key: 'restScore', label: 'Rest Score', sortable: true},
       {key: 'dream', label: 'Dream', sortable: true},
       {key: 'alarmWakeUp', label: 'Alarm Wake Up', sortable: true},
-      {key: 'nNaps', label: 'Number of Naps', sortable: true},
+      {key: 'numNaps', label: 'Number of Naps', sortable: true},
       {key: 'actions', label: 'Actions'}],
       form: {
           userSleepKey: '',
@@ -93,7 +91,7 @@ export default {
           restScore: '',
           dream: '',
           alarmWakeUp:'',
-          nNaps:'',
+          numNaps:''
         },
     }
   },
@@ -112,7 +110,7 @@ export default {
       this.form.restScore = item.restScore
       this.form.dream = item.dream
       this.form.alarmWakeUp = item.alarmWakeUp
-      this.form.nNaps = item.nNaps      
+      this.form.numNaps = item.numNaps      
     },
     resetEditModal() {
       this.form.userSleepKey=''
@@ -120,23 +118,21 @@ export default {
       this.form.restScore=''
       this.form.dream=''
       this.form.alarmWakeUp=''
-      this.form.nNaps=''
+      this.form.numNaps=''
     },
     onSave(event) {
-      var meal;
       var date;
       var client;
-      date = (this.form.userMealKey.dayYear);
-      meal = (this.form.userMealKey.mealType);
-      client = parseInt(this.form.userMealKey.clientId);
+      date = (this.form.userSleepKey.dayYear);
+      client = parseInt(this.form.userSleepKey.clientId);
       axios
-        .put('http://localhost:8085/diet/' + client +'/' + meal + '/' + date, {
+        .put('http://localhost:8085/sleep/' + client +'/' + date, {
           "userSleepKey": this.form.userSleepKey,
           "duration": this.form.duration,
           "restScore": this.restScore,
           "dream": this.form.dream,
           "alarmWakeUp": this.form.alarmWakeUp,
-          "nNaps": this.form.nNaps,
+          "numNaps": this.form.numNaps,
         })
         .then(() => this.init())
         .catch(function (error) {
