@@ -1,6 +1,7 @@
 package com.example.backend.controller;
 
 import com.example.backend.controller.exceptions.UserNotFoundException;
+import com.example.backend.model.entity.Diet;
 import com.example.backend.model.entity.User;
 import com.example.backend.model.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +28,11 @@ public class UserController {
     }
 
     @GetMapping("/user/{clientId}")
-    User retrieveUser(@PathVariable("clientId") Long clientId) {
+    User retrieveUser(@PathVariable("clientId") long clientId) {
         return repository.findById(clientId)
                 .orElseThrow(() -> new UserNotFoundException(clientId));
     }
+
 
     @PutMapping("/user/{clientId}")
     User updateUser(@RequestBody User newUser, @PathVariable("clientId") Long clientId) {
