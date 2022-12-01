@@ -1,9 +1,76 @@
 <template>
     <div class="hello">
-      <h2> Users </h2>
+      <h2> Users </h2> 
+      <b-button class="add-button" v-b-modal.add-modal>
+        <b-icon-plus-circle></b-icon-plus-circle>
+      </b-button>
+      <b-modal id="add-modal" ref="add-modal" title="Add User" @hide="resetEditModal" hide-footer>
+      <b-form>
+  
+          <label class="sr-only" for="input-clientId">Client ID</label>
+          <b-form-input
+            id='input-clientId'
+            v-model="form.clientId"
+            placeholder="Client ID"
+            required
+          ></b-form-input>
+  
+          <label class="sr-only" for="input-first-name">First Name</label>
+          <b-form-input
+            id='input-firstName'
+            v-model="form.firstName"
+            placeholder="First Name"
+            required
+          ></b-form-input>
+  
+          <label class="sr-only" for="input-last-name">Last Name</label>
+          <b-form-input
+            id="input-lastName"
+            v-model="form.lastName"
+            placeholder="Last Name"
+            required
+          ></b-form-input>
+
+          <label class="sr-only" for="input-age">Age</label>
+          <b-form-input
+            id="input-age"
+            v-model="form.age"
+            placeholder="Age"
+            required
+          ></b-form-input>
+
+          <label class="sr-only" for="input-height">Height</label>
+          <b-form-input
+            id="input-height"
+            v-model="form.height"
+            placeholder="Height"
+            required
+          ></b-form-input>
+
+          <label class="sr-only" for="input-weight">Weight</label>
+          <b-form-input
+            id="input-weight"
+            v-model="form.weight"
+            placeholder="Weight"
+            required
+          ></b-form-input>
+          
+          <label class="sr-only" for="input-password">Password</label>
+          <b-form-input
+            id="input-password"
+            v-model="form.password"
+            placeholder="Password"
+            required
+          ></b-form-input>
+          
+          <br />
+          <b-button type="button" @click="onAdd" variant="primary">Add</b-button>
+        </b-form>
+      </b-modal>
+
     <div class="search-container">
       <b-input-group>
-        <b-form-input type="text" placeholder="Search Students' Name" v-model="query"/>
+        <b-form-input type="text" placeholder="Search User's Name" v-model="query"/>
         <template #append>
           <b-button class="search-button" @click="search(query)">
             <b-icon-search></b-icon-search>
@@ -184,6 +251,22 @@
           .catch(function (error) {
             console.log(error);
           })
+      },
+      onAdd(event) {
+        axios
+          .post('http://localhost:8085/user/', {
+            "clientId": this.form.clientId,
+            "firstName": this.form.firstName,
+            "lastName": this.form.lastName,
+            "age": this.form.age,
+            "height": this.form.height,
+            "weight": this.form.weight,
+            "password": this.form.password,
+          })
+          .then(() => {this.init();this.$refs['add-modal'].hide()})
+          .catch(function (error) {
+            console.log(error);
+          });
       }
     }
   }
@@ -204,6 +287,16 @@
   }
   a {
     color: #42b983;
+  }
+
+  .add-button{
+    background-color: transparent;
+    color: #42b983;
+    border-color: #04AA6D;
+  }
+  .add-button:hover{
+    background-color: #42b983;
+    color: white;
   }
   </style>
   
