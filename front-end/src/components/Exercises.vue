@@ -110,7 +110,7 @@ export default {
       client = parseInt(this.form.userExerciseKey.clientId)
       axios
         .put('http://localhost:8085/exercise/' + client +'/' + exercise + '/' + date, {
-          "userExerciseKey": this.form.userExercise,
+          "userExerciseKey": this.form.userExerciseKey,
           "name": this.form.workoutName,
           "duration": this.duration,
           "satisfaction": this.form.satisfaction,
