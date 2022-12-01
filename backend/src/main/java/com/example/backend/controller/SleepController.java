@@ -1,10 +1,7 @@
 package com.example.backend.controller;
 
-import com.example.backend.controller.exceptions.UserMealNotFoundException;
 import com.example.backend.controller.exceptions.UserSleepNotFoundException;
-import com.example.backend.model.entity.Diet;
 import com.example.backend.model.entity.Sleep;
-import com.example.backend.model.entity.UserMealKey;
 import com.example.backend.model.entity.UserSleepKey;
 import com.example.backend.model.repository.SleepRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +43,7 @@ public class SleepController {
                     sleep.setRestScore(newSleep.getRestScore());
                     sleep.setDream(newSleep.getDream());
                     sleep.setAlarmWakeUp(newSleep.getAlarmWakeUp());
-                    sleep.setNNaps(newSleep.getNNaps());
+                    sleep.setNumNaps(newSleep.getNumNaps());
                     return repository.save(sleep);
                 })
                 .orElseThrow(() -> new UserSleepNotFoundException(userSleepKey));

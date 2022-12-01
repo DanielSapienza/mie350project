@@ -6,11 +6,9 @@ import lombok.Setter;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
 
 @Entity
 @NoArgsConstructor
@@ -33,15 +31,18 @@ public class Sleep {
 
     private boolean alarmWakeUp;
 
-    private int nNaps;
+    @Max(100)
+    @Min(0)
+    private int numNaps;
 
-    public Sleep(UserSleepKey userSleepKey, float duration, int restScore, boolean dream, boolean alarmWakeUp, int nNaps) {
+
+    public Sleep(UserSleepKey userSleepKey, float duration, int restScore, boolean dream, boolean alarmWakeUp, int numNaps) {
         this.userSleepKey = userSleepKey;
         this.duration = duration;
         this.restScore = restScore;
         this.dream = dream;
         this.alarmWakeUp = alarmWakeUp;
-        this.nNaps = nNaps;
+        this.numNaps = numNaps;
     }
 
     public boolean getDream() {
