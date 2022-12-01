@@ -21,20 +21,17 @@ public class DietController {
         this.repository = repository;
     }
 
-//    @GetMapping("/diet")
-//    List<Diet> retrieveWantedInfo(){ return repository.findWantedInfo(@PathVariable("wantedClientId") long wantedClientId); }
-//    List<Diet> retrieveWantedInfo(@PathVariable("wantedClientId") long wantedClientId) {
-//        repository.findWantedInfo(wantedClientId);
-//        return repository.findWantedInfo(wantedClientId);
-//    }
-
-
-    @GetMapping("/diet/{wantedClientId}")
-    List<Diet> retrieveWantedInfo(@PathVariable("wantedClientId") long wantedClientId){
-        return repository.findWantedInfo(wantedClientId);
+    @GetMapping("/diet/{clientId}")
+    List<Diet> retrieveWantedInfo(@PathVariable("clientId") long clientId) {
+        repository.findWantedInfo(clientId);
+        return repository.findWantedInfo(clientId);
     }
 
-    //List<Diet> retrieveAllDiets() {return repository.findAll();}
+    @GetMapping("/diet/admin")
+    List<Diet> retrieveAllDiet() {
+        return repository.findAll();
+    }
+
 
     @PostMapping("/diet")
     Diet createDiet(@RequestBody Diet newDiet) {

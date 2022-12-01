@@ -12,7 +12,11 @@ import java.util.List;
 @Repository
 public interface DietRepository extends JpaRepository<Diet, UserMealKey> {
 
-    @Query(value = "SELECT mealType, dayYear, mealName, calories, sugar, carbs, protein, fat FROM Diet WHERE clientId = :wantedClientId", nativeQuery = true)
-    List<Diet> findWantedInfo(@Param("wantedClientId") long wantedClientId);
+    @Query(value = "SELECT clientId, mealType, dayYear, mealName, calories, sugar, carbs, protein, fat FROM Diet WHERE clientId = :clientId", nativeQuery = true)
+    List<Diet> findWantedInfo(@Param("clientId") long clientId);
+
+//    @Query(value = "SELECT clientId, mealType, dayYear, mealName, calories, sugar, carbs, protein, fat FROM Diet", nativeQuery = true)
+//    List<Diet> findWantedInfo();
+
 
 }

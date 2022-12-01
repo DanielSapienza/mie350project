@@ -3,10 +3,12 @@
 
 
 INSERT INTO UserProfile (clientId, firstName, lastName, age, height, weight, password) VALUES (1111, 'Daniel', 'Sapienza', 20, 176.0, 135.0, '111');
+INSERT INTO UserProfile (clientId, firstName, lastName, age, height, weight, password) VALUES (2222, 'Monica', 'Geller', 26, 160.0, 130.0, '222');
 
 INSERT INTO Exercise (clientId, workoutId, dayYear, workoutName, duration, satisfaction) VALUES (1111, 1, 'March4,2022', 'arm day', 2.5, 3);
 
 INSERT INTO Diet (clientId, mealType, dayYear, mealName, calories, sugar, carbs, protein, fat) VALUES (1111, 'Breakfast', 'January3,2022', 'eggs and toast', 300, 20.6, 34.5, 19.5, 12.7);
+INSERT INTO Diet (clientId, mealType, dayYear, mealName, calories, sugar, carbs, protein, fat) VALUES (2222, 'Lunch', 'January3,2022', 'caprese sandwich', 300, 20.6, 34.5, 19.5, 12.7);
 
 INSERT INTO Sleep (clientId, dayYear, duration, restScore, dream, alarmWakeUp, nNaps) VALUES (1111, 'February10,2022', 6.5, 4, true, false, 1);
 
