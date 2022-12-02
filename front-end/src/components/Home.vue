@@ -10,9 +10,10 @@
       img-height="480"
       style="text-shadow: 1px 1px 2px #333;"
     >
-      <!-- Text slides with image -->
+      <!-- Slides with alt text -->
       <b-carousel-slide
-        img-src="https://www.langs.org/covid-19/health-and-well-being/health-and-wellness.jpg"
+      caption="Components of health and wellness"  
+      img-src="https://www.langs.org/covid-19/health-and-well-being/health-and-wellness.jpg"
       ></b-carousel-slide>
       
       <!-- Slides with custom text -->

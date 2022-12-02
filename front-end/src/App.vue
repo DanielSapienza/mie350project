@@ -7,7 +7,7 @@
 
       <b-navbar-toggle target="sidebar-menu">
       </b-navbar-toggle>
-      <b-sidebar id="sidebar-menu" title="MIE350 Health App" backdrop-variant="dark" backdrop shadow>
+      <b-sidebar id="sidebar-menu" title="Menu" backdrop-variant="dark" backdrop shadow>
         <b-nav vertical align="center">
           <b-nav-item to="/" exact exact-active-class="exact-active">Home</b-nav-item>
           <b-nav-item to="/users" exact exact-active-class="exact-active">Users</b-nav-item>
@@ -38,7 +38,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #036194;
   margin-top: 20px;
 }
 </style>
