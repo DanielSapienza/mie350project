@@ -3,7 +3,7 @@
   <b-container>
     <div>
       <b-navbar toggleable type="dark" variant="dark">
-      <b-navbar-brand href="#"><b-icon icon="book" variant="warning" style="margin-left: 20px;"></b-icon>Personal Health Application</b-navbar-brand>
+      <b-navbar-brand href="#"><b-icon icon="person-square" variant="warning" style="margin-left: 20px;"></b-icon> Personal Health Application</b-navbar-brand>
 
       <b-navbar-toggle target="sidebar-menu">
       </b-navbar-toggle>
