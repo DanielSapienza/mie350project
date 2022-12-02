@@ -118,7 +118,7 @@
         <br />
         <b-button type="button" @click="onSave" variant="primary">Save</b-button>
         <b-button type="reset" variant="warning">Reset</b-button>
-        <b-button type="button" variant="danger">Remove Progress</b-button>
+        <b-button type="button" @click="onDelete" variant="danger">Remove Progress</b-button>
       </b-form>
 
     </b-modal>
@@ -133,6 +133,7 @@ export default {
   data () {
     return {
       progress: null,
+      query: '',
       fields: [
       {key: 'userProgressKey.clientId', label: 'Client ID', sortable: true},
       {key: 'userProgressKey.progressId', label: 'Progress ID', sortable: true},

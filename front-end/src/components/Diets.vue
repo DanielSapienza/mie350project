@@ -185,7 +185,7 @@
         <br />
         <b-button type="button" @click="onSave" variant="primary">Save</b-button>
         <b-button type="reset" variant="warning">Reset</b-button>
-        <b-button type="button" variant="danger">Remove Diet</b-button>
+        <b-button type="button" @click="onDelete" variant="danger">Remove Diet</b-button>
       </b-form>
   
     </b-modal>
@@ -200,6 +200,7 @@ export default {
   data () {
     return {
       diet: null,
+      query: '',
       fields: [
       {key: 'userMealKey.clientId', label: 'Client ID', sortable: true},
       {key: 'userMealKey.mealType', label: 'Meal Type', sortable: true},

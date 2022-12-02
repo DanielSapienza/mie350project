@@ -150,7 +150,7 @@
         <br />
         <b-button type="button" @click="onSave" variant="primary">Save</b-button>
         <b-button type="reset" variant="warning">Reset</b-button>
-        <b-button type="button" variant="danger">Remove Sleep</b-button>
+        <b-button type="button" @click="onDelete" variant="danger">Remove Sleep</b-button>
       </b-form>
 
     </b-modal>
@@ -165,6 +165,7 @@ export default {
   data () {
     return {
       sleep: null,
+      query: '',
       fields: [
       {key: 'userSleepKey.clientId', label: 'Client ID', sortable: true},
       {key: 'userSleepKey.dayYear', label: 'Date', sortable: true},
