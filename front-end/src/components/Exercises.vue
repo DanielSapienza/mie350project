@@ -63,7 +63,7 @@
 
     <div class="search-container">
       <b-input-group>
-        <b-form-input type="text" placeholder="Search User's Name" v-model="query"/>
+        <b-form-input type="text" placeholder="Search Workout Name" v-model="query"/>
         <template #append>
           <b-button class="search-button" @click="search(query)">
             <b-icon-search></b-icon-search>
@@ -242,13 +242,15 @@ export default {
       },
       onAdd(event) {
         axios
-          .post('http://localhost:8085/exercise/', {
-            "userExerciseKey.clientId": this.form.clientId,
-            "userExerciseKey.workoutId": this.form.workoutId,
-            "userExerciseKey.dayYear": this.form.dayYear,
-            "workoutName": this.form.age,
-            "duration": this.form.height,
-            "satisfaction": this.form.weight,
+          .post('http://localhost:8085/exercise', {
+            "userExerciseKey": {
+              "clientId": this.form.clientId,
+              "workoutId": this.form.workoutId,
+              "dayYear": this.form.dayYear
+            },
+            "workoutName": this.form.workoutName,
+            "duration": this.form.duration,
+            "satisfaction": this.form.satisfaction,
           })
           .then(() => {this.init();this.$refs['add-modal'].hide()})
           .catch(function (error) {
