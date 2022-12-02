@@ -12,7 +12,14 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-//    @Query(value = "SELECT clientId, firstName, lastName, age, height, weight, password FROM UserProfile WHERE clientId = :clientId", nativeQuery = true)
-//    User findSpecificUser(@Param("clientId") long clientId);
+    //SELECT * from UserProfile u WHERE
+    //lower(u.firstName) like lower(concat('%', :searchTerm, '%'))
+    //OR
+    //lower(u.lastName) like lower(concat('%', :searchTerm, '%'))
 
+    @Query(value = "SELECT * from UserProfile u WHERE " +
+            "lower(u.firstName) like lower(concat('%', :searchTerm, '%')) " +
+            "OR " +
+            "lower(u.lastName) like lower(concat('%', :searchTerm, '%'))", nativeQuery = true)
+    List<User> searchByName(@Param("searchTerm") String searchTerm);
 }

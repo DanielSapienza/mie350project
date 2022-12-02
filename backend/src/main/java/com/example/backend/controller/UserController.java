@@ -51,5 +51,8 @@ public class UserController {
     @DeleteMapping("/user/{clientId}")
     void deleteUser(@PathVariable("clientId") Long clientId) {repository.deleteById(clientId);
     }
+
+    @GetMapping("/user/search/{searchString}")
+    List<User> searchUser(@PathVariable("searchString") String searchString) {return repository.searchByName(searchString);}
 }
 
