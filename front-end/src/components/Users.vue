@@ -1,6 +1,7 @@
 <template>
     <div class="hello">
       <h2> Users </h2> 
+
       <b-button class="add-button" v-b-modal.add-modal>
         <b-icon-plus-circle></b-icon-plus-circle>
       </b-button>
@@ -15,7 +16,7 @@
             required
           ></b-form-input>
   
-          <label class="sr-only" for="input-first-name">First Name</label>
+          <label class="sr-only" for="input-firstName">First Name</label>
           <b-form-input
             id='input-firstName'
             v-model="form.firstName"
@@ -23,7 +24,7 @@
             required
           ></b-form-input>
   
-          <label class="sr-only" for="input-last-name">Last Name</label>
+          <label class="sr-only" for="input-lastName">Last Name</label>
           <b-form-input
             id="input-lastName"
             v-model="form.lastName"
@@ -97,7 +98,7 @@
             readonly
           ></b-form-input>
   
-          <label class="sr-only" for="input-first-name">First Name</label>
+          <label class="sr-only" for="input-firstName">First Name</label>
           <b-form-input
             id='input-firstName'
             v-model="form.firstName"
@@ -105,7 +106,7 @@
             required
           ></b-form-input>
   
-          <label class="sr-only" for="input-last-name">Last Name</label>
+          <label class="sr-only" for="input-lastName">Last Name</label>
           <b-form-input
             id="input-lastName"
             v-model="form.lastName"
@@ -225,11 +226,10 @@
         this.form.password=''
       },
       onSave(event) {
-        var numId;
-        numId = parseInt(this.form.clientId);
+        var client;
+        client = parseInt(this.form.clientId);
         axios
-          .put('http://localhost:8085/user/' + numId, {
-            "id": numId,
+          .put('http://localhost:8085/user/' + client, {
             "firstName": this.form.firstName,
             "lastName": this.form.lastName,
             "age": this.form.age,
@@ -243,10 +243,10 @@
           });
       },
       onDelete(event) {
-        var numId;
-        numId = parseInt(this.form.clientId);
+        var client;
+        client = parseInt(this.form.clientId);
         axios
-          .delete('http://localhost:8085/user/' + numId)
+          .delete('http://localhost:8085/user/' + client)
           .then(() => this.init())
           .catch(function (error) {
             console.log(error);
@@ -254,7 +254,7 @@
       },
       onAdd(event) {
         axios
-          .post('http://localhost:8085/user/', {
+          .post('http://localhost:8085/user', {
             "clientId": this.form.clientId,
             "firstName": this.form.firstName,
             "lastName": this.form.lastName,

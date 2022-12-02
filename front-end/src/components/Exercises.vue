@@ -8,7 +8,7 @@
       <b-modal id="add-modal" ref="add-modal" title="Add Workout" @hide="resetEditModal" hide-footer>
       <b-form>
   
-        <label class="sr-only" for="input-clientId">Exercise ID</label>
+        <label class="sr-only" for="input-clientId">Client ID</label>
         <b-form-input
           id='input-clientId'
           v-model="form.clientId"
@@ -83,7 +83,7 @@
     <b-modal id="edit-modal" title="Edit Exercises" @hide="resetEditModal" hide-footer>
       <b-form>
 
-        <label class="sr-only" for="input-clientId">Exercise ID</label>
+        <label class="sr-only" for="input-clientId">Client ID</label>
         <b-form-input
           id='input-clientId'
           v-model="form.clientId"
@@ -179,18 +179,18 @@ export default {
         .then(response => (this.exercise = response.data))
     },
     search(seachTerm){
-        if (seachTerm){
-          axios
-          .get('http://localhost:8085/exercise/search/'+seachTerm)
-          .then(response => (this.exercise = response.data))
-          .catch(function(error){
-            if (error.response){
-              console.log(error.response.data);
-            }
-          })
-        }
-        console.log(seachTerm)
-      },
+      if (seachTerm){
+        axios
+        .get('http://localhost:8085/exercise/search/'+seachTerm)
+        .then(response => (this.exercise = response.data))
+        .catch(function(error){
+          if (error.response){
+            console.log(error.response.data);
+          }
+        })
+      }
+      console.log(seachTerm)
+    },
     edit(item, index, button) {
       this.form.clientId = item.userExerciseKey.clientId
       this.form.workoutId = item.userExerciseKey.workoutId
@@ -218,7 +218,7 @@ export default {
       axios
         .put('http://localhost:8085/exercise/' + client +'/' + exercise + '/' + date, {
           "workoutName": this.form.workoutName,
-          "duration": this.duration,
+          "duration": this.form.duration,
           "satisfaction": this.form.satisfaction,
         })
         .then(() => this.init())
@@ -239,23 +239,23 @@ export default {
           .catch(function (error) {
             console.log(error);
           })
-      },
-      onAdd(event) {
-        axios
-          .post('http://localhost:8085/exercise', {
-            "userExerciseKey": {
-              "clientId": this.form.clientId,
-              "workoutId": this.form.workoutId,
-              "dayYear": this.form.dayYear
-            },
-            "workoutName": this.form.workoutName,
-            "duration": this.form.duration,
-            "satisfaction": this.form.satisfaction,
-          })
-          .then(() => {this.init();this.$refs['add-modal'].hide()})
-          .catch(function (error) {
-            console.log(error);
-          });
+    },
+    onAdd(event) {
+      axios
+        .post('http://localhost:8085/exercise', {
+          "userExerciseKey": {
+            "clientId": this.form.clientId,
+            "workoutId": this.form.workoutId,
+            "dayYear": this.form.dayYear
+          },
+          "workoutName": this.form.workoutName,
+          "duration": this.form.duration,
+          "satisfaction": this.form.satisfaction,
+        })
+        .then(() => {this.init();this.$refs['add-modal'].hide()})
+        .catch(function (error) {
+          console.log(error);
+        });
       }
   }
 }
