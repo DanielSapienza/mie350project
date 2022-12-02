@@ -21,9 +21,7 @@ public class ExerciseController {
     public ExerciseController(ExerciseRepository repository){this.repository = repository;}
 
     @GetMapping("/exercise")
-    List<Exercise> retrieveAllExercises() {
-        return repository.findAll();
-    }
+    List<Exercise> retrieveAllExercises() {return repository.findAll();}
 
     @PostMapping("/exercise")
     Exercise createExercise(@RequestBody Exercise newExercise) {
