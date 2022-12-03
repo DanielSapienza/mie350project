@@ -12,11 +12,6 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    //SELECT * from UserProfile u WHERE
-    //lower(u.firstName) like lower(concat('%', :searchTerm, '%'))
-    //OR
-    //lower(u.lastName) like lower(concat('%', :searchTerm, '%'))
-
     @Query(value = "SELECT * from UserProfile u WHERE " +
             "lower(u.firstName) like lower(concat('%', :searchTerm, '%')) " +
             "OR " +
