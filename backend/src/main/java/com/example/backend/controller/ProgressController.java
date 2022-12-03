@@ -52,5 +52,8 @@ public class ProgressController {
         repository.deleteById(userProgressKey);
     }
 
+    @GetMapping("/progress/search/{searchString}")
+    List<Progress> searchUser(@PathVariable("searchString") String searchString) {return repository.searchByName(searchString);}
+
 }
 

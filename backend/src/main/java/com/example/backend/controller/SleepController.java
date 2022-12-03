@@ -1,6 +1,7 @@
 package com.example.backend.controller;
 
 import com.example.backend.controller.exceptions.UserSleepNotFoundException;
+import com.example.backend.model.entity.Progress;
 import com.example.backend.model.entity.Sleep;
 import com.example.backend.model.entity.UserSleepKey;
 import com.example.backend.model.repository.SleepRepository;
@@ -54,5 +55,8 @@ public class SleepController {
         UserSleepKey userSleepKey = new UserSleepKey(clientId, dayYear);
         repository.deleteById(userSleepKey);
     }
+
+    @GetMapping("/sleep/search/{searchString}")
+    List<Sleep> searchUser(@PathVariable("searchString") String searchString) {return repository.searchByName(searchString);}
 
 }

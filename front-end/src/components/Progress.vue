@@ -55,7 +55,7 @@
 
     <div class="search-container">
       <b-input-group>
-        <b-form-input type="text" placeholder="Search Progress Name" v-model="query"/>
+        <b-form-input type="text" placeholder="Search Goal" v-model="query"/>
         <template #append>
           <b-button class="search-button" @click="search(query)">
             <b-icon-search></b-icon-search>

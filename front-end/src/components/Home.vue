@@ -27,7 +27,6 @@
       <b-carousel-slide img-src="https://media.istockphoto.com/vectors/set-of-men-and-women-exercise-at-home-using-the-house-as-a-gym-vector-id1220576876?k=20&m=1220576876&s=612x612&w=0&h=436tV4wL8JHGkYDUANYAQzBQIq6mvclICbA96-Uy2Ws="></b-carousel-slide>
 
     </b-carousel>
-    Hello Testing 123
   </div>
 </template>
 
