@@ -173,7 +173,6 @@ export default {
       console.log(seachTerm)
     },
     edit(item, index, button) {
-      console.log("testing")
       this.form.clientId = item.userProgressKey.clientId
       this.form.progressId = item.userProgressKey.progressId
       this.form.goal = item.goal
