@@ -12,21 +12,28 @@
     >
       <!-- Slides with alt text -->
       <b-carousel-slide
-      caption="Components of health and wellness"  
-      img-src="https://www.langs.org/covid-19/health-and-well-being/health-and-wellness.jpg"
+      caption="Vida Fit logo" 
+      img-src="https://i.ibb.co/B25NbJJ/vidafit.png"
       ></b-carousel-slide>
       
-      <!-- Slides with custom text -->
-      
+      <!-- Slides with alt text -->
       <b-carousel-slide
-        caption="Personal Health Application" 
-        img-src="http://foodandhealth.com/clipart.php/view/951/?download=1"
+        caption="Person jogging" 
+        img-src="https://images.everydayhealth.com/images/consisten-exercise-helps-anxiety-and-stress-1440x810.jpg"
       ></b-carousel-slide>
 
-      <!-- Slides with image only -->
-      <b-carousel-slide img-src="https://media.istockphoto.com/vectors/set-of-men-and-women-exercise-at-home-using-the-house-as-a-gym-vector-id1220576876?k=20&m=1220576876&s=612x612&w=0&h=436tV4wL8JHGkYDUANYAQzBQIq6mvclICbA96-Uy2Ws="></b-carousel-slide>
+      <!-- Slides with alt text -->
+      <b-carousel-slide
+        caption="Person meditating" 
+        img-src="https://cdn.shrm.org/image/upload/c_crop%2Ch_704%2Cw_1254%2Cx_0%2Cy_0/c_fit%2Cf_auto%2Cq_auto%2Cw_767/v1/Tools%20and%20Samples/tk_wellness_sdydf0?databtoa=eyIxNng5Ijp7IngiOjAsInkiOjAsIngyIjoxMjU0LCJ5MiI6NzA0LCJ3IjoxMjU0LCJoIjo3MDR9fQ%3D%3D"></b-carousel-slide>
 
     </b-carousel>
+
+  <footer>
+    <p>Copyright &copy; 2022</p>
+  </footer>
+
+
   </div>
 </template>
 
@@ -39,6 +46,7 @@ export default {
   }
 }
 </script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
