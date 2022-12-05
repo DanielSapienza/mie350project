@@ -3,7 +3,9 @@
   <b-container>
     <div>
       <b-navbar toggleable type="light" variant="info">
-      <b-navbar-brand href="#"><b-icon icon="flower1" variant="dark" style="margin-left: 20px;"></b-icon> Vida Fit</b-navbar-brand>
+      <b-navbar-brand href="#"><b-icon icon="flower1" variant="dark" style="margin-left: 20px;"></b-icon>
+        <img alt="Vida Fit" src="https://i.ibb.co/zQkdkPp/vidaFit.png" height="18">
+         </b-navbar-brand>
 
       <b-navbar-toggle target="sidebar-menu">
       </b-navbar-toggle>
@@ -16,6 +18,7 @@
           <b-nav-item to="/diets" exact exact-active-class="exact-active"><b-icon icon="cup-straw" variant="primary"></b-icon>  Diets</b-nav-item>
           <b-nav-item to="/progress" exact exact-active-class="exact-active"><b-icon icon="journal-check" variant="primary"></b-icon>  Progress</b-nav-item>
           <b-nav-item to="/sleep" exact exact-active-class="exact-active"><b-icon icon="moon-stars" variant="primary"></b-icon>  Sleep</b-nav-item>
+          <b-nav-item to="/resources" exact exact-active-class="exact-active"><b-icon icon="info-circle" variant="primary"></b-icon>  Resources</b-nav-item>
           <b-nav-item disabled>Admin</b-nav-item>
         </b-nav>
       </b-sidebar>

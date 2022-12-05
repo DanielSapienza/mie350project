@@ -1,10 +1,12 @@
 <template>
     <div class="hello">
-      <h2> Users </h2> 
+    <img alt="Users" src="https://i.ibb.co/kxCMg28/users-banner.png" height="50">
+    <p></p>
 
       <b-button class="add-button" v-b-modal.add-modal>
         <b-icon-plus-circle></b-icon-plus-circle>
       </b-button>
+      <p></p>
       <b-modal id="add-modal" ref="add-modal" title="Add User" @hide="resetEditModal" hide-footer>
       <b-form>
   

@@ -1,10 +1,12 @@
 <template>
   <div class="hello">
-    <h2> Exercises </h2>
+    <img alt="Exercises" src="https://i.ibb.co/Lh30fs8/exercise-banner.png" height="50">
+    <p></p>
 
     <b-button class="add-button" v-b-modal.add-modal>
         <b-icon-plus-circle></b-icon-plus-circle>
       </b-button>
+    <p></p>
       <b-modal id="add-modal" ref="add-modal" title="Add Workout" @hide="resetEditModal" hide-footer>
       <b-form>
   

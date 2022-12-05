@@ -1,10 +1,12 @@
 <template>
   <div class="hello">
-    <h2> Progress </h2>
+    <img alt="Progress" src="https://i.ibb.co/thzRdmx/progress-banner.png" height="50">
+    <p></p>
 
     <b-button class="add-button" v-b-modal.add-modal>
         <b-icon-plus-circle></b-icon-plus-circle>
       </b-button>
+    <p></p>
       <b-modal id="add-modal" ref="add-modal" title="Add Progress" @hide="resetEditModal" hide-footer>
       <b-form>
 

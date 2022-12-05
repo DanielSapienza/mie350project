@@ -2,7 +2,7 @@
     <header>
       <img alt="Vida Fit logo" src="https://i.ibb.co/T4gtqdh/logoicon.png" height="50">
       <p></p>
-      <p>Welcome to Vida Fit!</p>
+      <img alt="Welcome to Vida Fit" src="https://i.ibb.co/6YKmr8Q/welcome-To-Vida-Fit.png" height="25">
       <p></p>
       <p>Vida Fit helps users track their health statistics, sleep patterns, and eating habits and 
         overall support them in achieving their health and fitness goals. Vida Fit was born
@@ -13,8 +13,7 @@
          at any moment and can also make edits to their profiles.
         </p>
       <p></p>
-
-      <p>About Us</p>
+      <img alt="Meet the Team" src="https://i.ibb.co/28PJLNk/meet-The-Team.png" height="20">
       <p></p>
       <img alt="Team" src="https://i.ibb.co/cDtYTB0/team.png" height="125">
       <p></p>

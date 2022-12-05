@@ -8,6 +8,7 @@ import Login from '@/components/Login'
 import Progress from '@/components/Progress'
 import Sleep from '@/components/Sleep'
 import About from '@/components/About'
+import Resources from '@/components/Resources'
 
 
 
@@ -54,6 +55,11 @@ export default new Router({
       path: '/about',
       name: 'About',
       component: About
+    },
+    {
+      path: '/resources',
+      name: 'Resources',
+      component: Resources
     },
   ]
 })
