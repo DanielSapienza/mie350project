@@ -10,7 +10,7 @@
         </p>
 
     <a href="https://www.calories.info/">
-      <button>Calorie chart database</button>
+      <button>Calorie Chart Database</button>
     </a>
     <a
        href="https://food-guide.canada.ca/en/">
@@ -28,7 +28,7 @@
         </p>
 
     <a href="https://www.nhlbi.nih.gov/resources/sleep-brochure">
-      <button>Sleep guide</button>
+      <button>Sleep Guide</button>
     </a>
 
     <p></p>
@@ -40,7 +40,7 @@
         </p>
 
     <a href="https://www.healthline.com/nutrition/how-to-start-exercising#TOC_TITLE_HDR_4">
-      <button>Exercising for beginners</button>
+      <button>Exercising For Beginners</button>
     </a>
     <p></p>
   </div>
