@@ -1,6 +1,5 @@
 package com.example.backend.model.repository;
 
-import com.example.backend.model.entity.Exercise;
 import com.example.backend.model.entity.Progress;
 import com.example.backend.model.entity.UserProgressKey;
 import org.springframework.data.jpa.repository.JpaRepository;

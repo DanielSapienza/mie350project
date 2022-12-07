@@ -1,10 +1,7 @@
 package com.example.backend.controller;
 
 import com.example.backend.controller.exceptions.UserMealNotFoundException;
-import com.example.backend.controller.exceptions.UserNotFoundException;
 import com.example.backend.model.entity.Diet;
-import com.example.backend.model.entity.Exercise;
-import com.example.backend.model.entity.User;
 import com.example.backend.model.entity.UserMealKey;
 import com.example.backend.model.repository.DietRepository;
 import org.springframework.beans.factory.annotation.Autowired;

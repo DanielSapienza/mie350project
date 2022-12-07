@@ -1,6 +1,5 @@
 package com.example.backend.model.repository;
 
-import com.example.backend.model.entity.Progress;
 import com.example.backend.model.entity.Sleep;
 import com.example.backend.model.entity.UserSleepKey;
 import org.springframework.data.jpa.repository.JpaRepository;

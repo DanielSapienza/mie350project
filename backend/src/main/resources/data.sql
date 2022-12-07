@@ -1,5 +1,4 @@
 
--- Hello everyone! Please remember to only use SINGLE quotations and ADD A SEMICOLON
 
 
 INSERT INTO UserProfile (clientId, firstName, lastName, age, height, weight, password) VALUES (1111, 'Michael', 'Scott', 49, 176.0, 170.0, '111');

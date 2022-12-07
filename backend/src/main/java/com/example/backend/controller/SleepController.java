@@ -1,7 +1,6 @@
 package com.example.backend.controller;
 
 import com.example.backend.controller.exceptions.UserSleepNotFoundException;
-import com.example.backend.model.entity.Progress;
 import com.example.backend.model.entity.Sleep;
 import com.example.backend.model.entity.UserSleepKey;
 import com.example.backend.model.repository.SleepRepository;

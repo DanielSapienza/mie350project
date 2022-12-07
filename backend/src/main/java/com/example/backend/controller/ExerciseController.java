@@ -1,7 +1,6 @@
 package com.example.backend.controller;
 
 import com.example.backend.controller.exceptions.UserExerciseNotFoundException;
-import com.example.backend.controller.exceptions.UserMealNotFoundException;
 import com.example.backend.model.entity.*;
 import com.example.backend.model.repository.ExerciseRepository;
 import org.springframework.beans.factory.annotation.Autowired;

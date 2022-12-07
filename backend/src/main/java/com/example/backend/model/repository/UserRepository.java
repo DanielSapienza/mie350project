@@ -1,6 +1,5 @@
 package com.example.backend.model.repository;
 
-import com.example.backend.model.entity.Diet;
 import com.example.backend.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
