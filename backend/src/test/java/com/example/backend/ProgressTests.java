@@ -43,7 +43,7 @@ public class ProgressTests {
 
     @Test
     void getProgress() throws Exception{
-        MockHttpServletResponse response = mockMvc.perform(get("/sleep/1111/1"))
+        MockHttpServletResponse response = mockMvc.perform(get("/progress/1111/1"))
                 .andReturn().getResponse();
 
         assertEquals(200, response.getStatus());
@@ -57,7 +57,7 @@ public class ProgressTests {
     @Test
     void deleteProgress() throws Exception {
         MockHttpServletResponse response = mockMvc.perform(
-                        delete("/sleep/1111/1").
+                        delete("/progress/1111/1").
                                 contentType("application/json"))
                 .andReturn().getResponse();
 
