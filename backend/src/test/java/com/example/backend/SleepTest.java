@@ -61,11 +61,11 @@ public class SleepTest {
     @Test
     void deleteSleep() throws Exception {
         MockHttpServletResponse response = mockMvc.perform(
-                        delete("/sleep/1111/December2,2022").
+                        delete("/sleep/2222/December3,2022").
                                 contentType("application/json"))
                 .andReturn().getResponse();
 
-        UserSleepKey sleepKey = new UserSleepKey(1111L,"December2,2022");
+        UserSleepKey sleepKey = new UserSleepKey(2222L,"December3,2022");
         assertEquals(200, response.getStatus());
         assertTrue(sleepRepository.findById(sleepKey).isEmpty());
     }
