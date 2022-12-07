@@ -126,25 +126,4 @@ public class UserTests {
 
     }
 
-    @Test
-    void searchUser() throws Exception{
-        MockHttpServletResponse response = mockMvc.perform(get("/user/search/Angela"))
-                .andReturn().getResponse();
-
-        assertEquals(200, response.getStatus());
-
-
-
-        ObjectNode receivedJson = objectMapper.readValue(response.getContentAsString(), ObjectNode.class);
-        assertEquals(8888L, receivedJson.get("clientId").longValue());
-        assertEquals("Angela", receivedJson.get("firstName").textValue());
-        assertEquals("Martin", receivedJson.get("lastName").textValue());
-        assertEquals(34, receivedJson.get("age").intValue());
-        assertEquals(150.0, receivedJson.get("height").floatValue());
-        assertEquals(130.0, receivedJson.get("weight").floatValue());
-        assertEquals("888", receivedJson.get("password").textValue());
-        //Has an issue converting the list to a string, but if you look at the error message, it seems that it would pass.
-
-    }
-
 }
