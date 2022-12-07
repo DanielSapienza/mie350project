@@ -18,6 +18,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
+import java.text.DecimalFormat;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -52,15 +54,18 @@ public class DietTests {
 
         //Diet gotDiet = dietRepository.findById(dietKey).get();
 
-        assertEquals(1111L, receivedJson.get("clientId").longValue());
-        assertEquals("Breakfast", receivedJson.get("mealType").textValue());
-        assertEquals("December2,2022", receivedJson.get("dayYear").textValue());
+        //DecimalFormat df = new DecimalFormat("#.#");
+
+
+        //assertEquals(1111L, gotDiet.getUserMealKey().getClientId());
+        //assertEquals("Breakfast", gotDiet.getUserMealKey().getMealType());
+        //assertEquals("December2,2022", gotDiet.getUserMealKey().getDayYear());
         assertEquals("Eggs and toast", receivedJson.get("mealName").textValue());
         assertEquals(300, receivedJson.get("calories").floatValue());
-        assertEquals(20.6, receivedJson.get("sugar").floatValue());
-        assertEquals(34.5, receivedJson.get("carbs").floatValue());
-        assertEquals(19.5, receivedJson.get("protein").floatValue());
-        assertEquals(12.7, receivedJson.get("fat").floatValue());
+        assertEquals(20.6, Math.round(receivedJson.get("sugar").floatValue()),1);
+        assertEquals(34.5, Math.round(receivedJson.get("carbs").floatValue()), 1);
+        assertEquals(19.5, Math.round(receivedJson.get("protein").floatValue()),1);
+        assertEquals(12.7, Math.round(receivedJson.get("fat").floatValue()),1);
     }
 
     @Test
@@ -110,7 +115,7 @@ public class DietTests {
                                 contentType("application/json"))
                 .andReturn().getResponse();
 
-        UserMealKey dietKey = new UserMealKey(1111, "Breakfast","December2,2022");
+        UserMealKey dietKey = new UserMealKey(1111L, "Breakfast","December2,2022");
         assertEquals(200, response.getStatus());
         assertTrue(dietRepository.findById(dietKey).isEmpty());
     }

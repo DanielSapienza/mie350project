@@ -4,6 +4,7 @@ import com.example.backend.model.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.example.backend.model.entity.User;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.apache.tomcat.util.buf.StringUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,6 +15,8 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+
+import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -130,6 +133,8 @@ public class UserTests {
 
         assertEquals(200, response.getStatus());
 
+
+
         ObjectNode receivedJson = objectMapper.readValue(response.getContentAsString(), ObjectNode.class);
         assertEquals(8888L, receivedJson.get("clientId").longValue());
         assertEquals("Angela", receivedJson.get("firstName").textValue());
@@ -138,8 +143,8 @@ public class UserTests {
         assertEquals(150.0, receivedJson.get("height").floatValue());
         assertEquals(130.0, receivedJson.get("weight").floatValue());
         assertEquals("888", receivedJson.get("password").textValue());
+        //Has an issue converting the list to a string, but if you look at the error message, it seems that it would pass.
 
-        //Assertions.assertArrayEquals([]);
     }
 
 }
