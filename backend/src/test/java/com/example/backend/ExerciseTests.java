@@ -1,10 +1,10 @@
 package com.example.backend;
 
 import com.example.backend.model.entity.Diet;
+import com.example.backend.model.entity.UserExerciseKey;
 import com.example.backend.model.entity.UserMealKey;
-import com.example.backend.model.entity.UserSleepKey;
 import com.example.backend.model.repository.DietRepository;
-import com.example.backend.model.repository.SleepRepository;
+import com.example.backend.model.repository.ExerciseRepository;
 import com.example.backend.model.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.example.backend.model.entity.User;
@@ -29,11 +29,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class SleepTest {
+public class ExerciseTests {
 
     @Autowired
     private MockMvc mockMvc;
@@ -41,35 +40,30 @@ public class SleepTest {
     private ObjectMapper objectMapper;
 
     @Autowired
-    private SleepRepository sleepRepository;
+    private ExerciseRepository exerciseRepository;
 
     @Test
-    void getSleep() throws Exception{
-        MockHttpServletResponse response = mockMvc.perform(get("/sleep/1111/December2,2022"))
+    void getExercise() throws Exception{
+        MockHttpServletResponse response = mockMvc.perform(get("/exercise/1111/1/December2,2022"))
                 .andReturn().getResponse();
 
         assertEquals(200, response.getStatus());
         ObjectNode receivedJson = objectMapper.readValue(response.getContentAsString(), ObjectNode.class);
 
-
-        assertEquals(6.5, Math.round(receivedJson.get("duration").floatValue()),1);
-        assertEquals(4, receivedJson.get("restScore").floatValue());
-        assertEquals(true, receivedJson.get("dream").asBoolean());
-        assertEquals(true, receivedJson.get("alarmWakeUp").asBoolean());
-        assertEquals(1,receivedJson.get("numNaps").floatValue());
+        assertEquals("arm day", receivedJson.get("workoutName").textValue());
+        assertEquals(2.5, Math.round(receivedJson.get("duration").floatValue()),1);
+        assertEquals(3, receivedJson.get("satisfaction").intValue());
     }
+
     @Test
-    void deleteSleep() throws Exception {
+    void deleteExercise() throws Exception {
         MockHttpServletResponse response = mockMvc.perform(
-                        delete("/sleep/1111/December2,2022").
+                        delete("/exercise/2222/1/December2,2022").
                                 contentType("application/json"))
                 .andReturn().getResponse();
 
-        UserSleepKey sleepKey = new UserSleepKey(1111L,"December2,2022");
+        UserExerciseKey exerciseKey = new UserExerciseKey(2222L, 1L,"December2,2022");
         assertEquals(200, response.getStatus());
-        assertTrue(sleepRepository.findById(sleepKey).isEmpty());
+        assertTrue(exerciseRepository.findById(exerciseKey).isEmpty());
     }
-
 }
-
-
