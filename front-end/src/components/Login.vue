@@ -66,9 +66,6 @@
             .then(axios.spread((data1) => {
             console.log('data1', data1)
             if (typeof data1 !== 'undefined'){
-                //this.$emit("authenticated", true);
-                //this.$emit("authorized", false);
-                //this.$emit('User',data1.data);
                 this.$root.$emit("authenticated", true);
                 this.$root.$emit("authorized", false);
                 this.$root.$emit('User',data1.data);
